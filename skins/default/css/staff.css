@@ -1,0 +1,540 @@
+fieldset
+	{
+	display: inline;
+	vertical-align: top;
+	border: 1px solid #e0e0e0;
+	padding:4px;
+	margin:5px;
+	min-height: 30px;
+	}
+
+fieldset.birthdays
+	{
+	width: 400px;
+	}
+	
+fieldset.find #Name
+	{
+	width: 350px;
+	font-size: 12pt;
+	}
+	
+	
+fieldset.export
+	{
+	margin-left:0px;
+	}		
+
+
+fieldset.whoareyou
+	{
+	/*display: block;*/
+	}	
+	
+fieldset.whoareyou ul
+	{
+	margin: 0px;
+	padding-left: 20px;
+	}
+	
+legend
+	{
+	color: #838383;
+	}
+	
+form
+	{
+	margin: 0px;
+	}
+	
+form.heads div.heads
+	{
+	float: left;
+	border: 0px solid red;
+
+	}
+
+
+form.heads img
+	{
+	margin: 0px;
+	}	
+	
+#search input
+	{
+	font-family: Tahoma;	
+	padding: 4px;
+    font-size: 9pt;
+	color:#000000;	
+	}
+
+input.text
+	{	
+	border: 1px solid #A8A8A8; /*#A8A8A8*/
+	}
+
+input.error
+	{
+	border: 1px solid #bcbcbc;
+	background-color: #fff0f0;
+	}
+input.success	
+	{
+	border: 1px solid #bcbcbc;
+	background-color: #d4facb;
+	}
+
+input.fio
+	{
+	width: 250px;
+	}	
+		
+input.othertelephone
+	{
+	width: 80px;
+	}	
+	
+input.telephonenumber
+	{
+	width: 70px;
+	}	
+	
+input.email
+	{
+	width: 140px;
+	}	
+input.mobile
+	{
+	width: 90px;
+	}
+input.password
+	{
+	width: 150px;
+	}
+input.date
+	{
+	width: 70px;
+	}
+	
+textarea
+	{
+	font-family: Tahoma;	
+	font-size: 9pt;
+	width: 200px;
+	height: 30px;
+	padding: 4px;
+	}
+	
+input.hiidenfile
+	{
+	position:absolute;
+	width: 190px;
+	margin-left: -142px;
+	margin-top: -13px;
+	cursor: default;
+	height: 26px;
+	z-index: 2;
+	filter: alpha(opacity: 0);
+	opacity: 0;
+	}
+input.filebutton
+	{
+	position: absolute;
+	margin-left: -14px;
+	margin-top: -13px;
+	width: 62px;
+	}
+		
+/*Всплывающие подсказки*/
+/*----------------------------------------------------------------------------------------------*/
+.title{
+	position:relative;
+	z-index:1;
+	zoom:1;
+	color:#06F;
+}
+.title em{display:none;}
+.title:hover em{
+	display:block;
+	position:absolute;
+	z-index:1;
+ 	background-color:#000;
+ 	/*-webkit-border-radius:5px; 
+ 	-moz-border-radius:5px;
+ 	border-radius:5px;*/
+	line-height:normal;
+	color:#fff;
+	text-decoration:none;
+	padding:3px 5px;
+	bottom:30px;
+	right:0;
+	width: 200px;
+	/*-webkit-box-shadow:0 0 5px #000;
+	-moz-box-shadow:0 0 5px #000;
+	box-shadow:0 0 5px #000;*/
+}
+.title:hover em i{
+	position:absolute;
+	z-index:1;
+	bottom:-7px;
+	right:5px;
+	border-top:7px solid #000;
+	border-left:7px solid transparent;
+	_border-left:7px solid #FDEFC6; /* цвет фона. это для ие6.*/
+	display:block;
+	height:0;
+	overflow:hidden;
+}	
+/*----------------------------------------------------------------------------------------------*/
+
+#search input
+	{
+	float:left;
+	}
+#search
+	{
+	overflow: hidden;
+	}
+	
+
+#Vac input, #Vac img
+	{
+	vertical-align: middle;
+	}	
+.hidden
+	{
+	display: none;
+	}
+	
+a.alert
+	{
+	color: #db2820;
+	}
+a.alert:hover 
+	{
+	color: #147dc0;
+	} 	
+	
+a.letter, span.letter
+	{
+	font-size: 14pt;
+	margin-right: 5px;
+	}
+span.letter
+	{
+	color: #838383;
+	}
+span.sep_letter, .department_title
+	{
+	font-size: 14pt;
+	}	
+td div.division
+	{
+	padding-top: 10px;
+	}	
+td div.department
+	{
+	color: #666;
+	}
+	
+div.sep_tabs
+	{
+	margin: 0px 40px 0px 0px;
+	float:left;
+	}
+	
+div.views
+	{
+	border-radius: 8px 8px 0px 0px;
+	}
+div.export
+	{
+	border-radius: 0px 10px 0px 0px;
+	}
+	
+#exp_pdf_sep_dep
+	{
+	background-image: url('../images/pdf.png');
+	background-repeat: no-repeat;
+	background-position: 3px 3px;
+	padding-left: 22px;
+	}
+#exp_pdf_sep_alph
+	{
+	background-image: url('../images/pdf.png');
+	background-repeat: no-repeat;
+	background-position: 3px 3px;
+	padding-left: 22px;
+	}
+	
+#show_all_birth
+	{
+	font-size: 17pt;
+	margin: 0 auto;
+	display: none;
+	width: 12px;
+	}
+.h
+	{
+	display: none;
+	}
+	
+#move_to_dep ul
+	{
+	float: left;
+	padding: 0px 10px 0px 20px;
+	margin: 0px;
+	}
+#move_to_dep ul li
+	{
+	margin: 5px 0px 5px 0px;
+	}
+#move_to_dep ul li:last
+	{
+	margin: 5px 0px 0px 0px;
+	}
+fieldset ul li
+	{
+	margin-top: 2px;
+	}
+
+.found
+	{
+	background: #ffffff;
+	color: #db290c;
+	text-decoration: none;
+	}
+.aim
+	{
+	text-decoration: underline;
+	}
+	
+table.user tr
+	{
+	vertical-align: top;
+	}
+
+/*table.user tr td div
+	{
+	border: 1px solid red;
+	}*/
+	
+h6
+	{
+	color: #575656;
+	display: inline;
+	font-size: 10pt;
+	margin-right: 3px;
+	font-weight: normal;
+	}
+	
+table.user tr td div
+	{
+	margin-top: 10px;
+	}	
+table.sqltable  tr td div 
+	{
+	margin-top: 0px;
+	}
+		
+	
+table.user tr td div.surname_head
+	{
+	margin-top: 0px;
+	font-size: 23px;
+	color:#336666;
+	font-weight: bold;
+	}
+
+table.user tr td div.name
+	{
+	margin-top: 0px;
+	font-size: 19px;
+	letter-spacing: 3px;
+	color:#336666;
+	}
+
+
+table.user tr td div.birthday,	
+table.user tr td div.email,	
+table.user tr td div.position
+	{
+	background-image: url('../images/divider.gif');
+	background-repeat: repeat-x;	
+	background-position: bottom;
+	padding-bottom: 10px;
+	line-height: 1.5;
+	}	
+table.user tr td .department
+	{
+	background-color: #f9efde;
+	padding: 3px 3px 3px 1px;
+	}
+	
+table.user tr td div.birthday div
+	{
+	color: #d90505;
+	display: inline;
+	font-size: 12px;
+	}
+	
+table.user tr td div.otherphone,
+table.user tr td div.birthday
+table.user tr td div.phone,
+table.user tr td div.email,
+table.user tr td div.employee,
+table.user tr td div.staff
+	{
+	font-size: 13px;	
+	}
+	
+table.user tr td div.otherphone a.cellphone,
+table.user tr td div.otherphone a.cityphone,
+table.user tr td div.otherphone a.homephone,
+table.user tr td div.otherphone a.int_phone,
+table.user tr td div.phone a.cellphone,
+table.user tr td div.phone a.cityphone,
+table.user tr td div.phone a.homephone,
+table.user tr td div.phone a.int_phone,
+table.user tr td div.email a,
+table.user tr td div.employee a
+	{
+	font-size: 15px;	
+	}
+	
+div.employee a span.surname
+	{
+	font-weight: bold;
+	}
+	
+table.user tr td div.position
+	{
+	font-size: 12px;
+	}
+	
+table.sqltable .surname
+	{
+	font-size: 13px;
+	font-weight: bold;
+	display: block;
+	}
+	
+span.deputy .surname
+	{
+	display: inline;
+	font-weight: normal;
+	}
+
+div.photo
+	{
+	border: 1px solid #D9E6E3;
+	padding: 5px;
+	margin-right: 10px;
+	overflow: auto;
+	background-color: #EBF1EC;
+	}	
+	
+.add_dep_info
+	{
+	margin: 0px 0px 0px 30px;
+	font-size: 9pt;
+	color: #000;
+	}
+.add_dep_info a.int_phone
+	{
+	font-size: 13pt;
+	background-position: 0px 5px;
+	}
+	
+.cell_phone
+	{
+	background-image: url('../images/cell_phone.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	padding: 4px 0px 0px 16px;
+	}
+.cityphone
+	{
+	background-image: url('../images/city_phone.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	padding: 4px 0px 0px 16px;
+	}
+.homephone
+	{
+	background-image: url('../images/home_phone.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	padding: 4px 0px 0px 16px;
+	}
+.int_phone
+	{
+	background-image: url('../images/int_phone.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	padding: 4px 0px 0px 16px;
+	}
+.alarm
+	{
+	background-color: #c21111;
+	padding: 2px;
+	color: #fff
+	}
+.sqltable .alarm
+	{
+	background-color: #d49999;
+	padding: 1px;
+	color: #fff	
+	}
+.uarr
+	{
+	font-size: 16pt;
+	position: relative;
+	top: -4px;
+	margin: 0px 10px 0px 0px;
+	}
+	
+#alarm_mess
+	{
+	margin: 0px auto 10px auto;
+	width: 1000px;
+	}
+
+div.avatar
+	{
+	border: 1px solid #ccc;
+	padding: 2px;
+	float: left;
+	margin: 0px 5px 0px 0px;
+	}
+	
+.next_vac, .prev_vac
+	{
+	background-color: #d6d6d6;
+	padding: 2px;
+	padding: 2px;
+	}
+	
+.unimportant
+	{
+	color: #666;
+	}
+
+a.favourite
+	{
+	display:block;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	}
+	
+a.fav_false, a.fav_true:hover
+	{
+	background-image: url('../images/star_grey.png');
+	}
+	
+a.fav_true, a.fav_false:hover
+	{
+	background-image: url('../images/star.png');
+	}
+	

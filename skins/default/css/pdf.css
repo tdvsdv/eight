@@ -1,0 +1,85 @@
+table
+	{
+	width: 100%;
+	}
+
+table tr td
+	{
+	vertical-align: top;
+	}
+
+#title
+	{
+	font-size: 16pt;
+	}
+
+#header
+	{
+	text-align: right;
+	}
+
+#create_date
+	{
+	color: #ccc;
+	font-size: 9pt;
+	}
+
+td.department	
+	{
+	font-size: 13pt;
+	}
+div.department	
+	{
+	color: #353535;
+	}
+
+td.name
+	{
+	width: 30%;
+	}
+
+.surname
+	{
+	font-size: 11pt;
+	}
+
+.patronymic
+	{
+	font-size: 9pt;
+	border: 0px solid red;
+	}
+
+td.internal_phone
+	{
+	font-size: 9pt;
+	white-space:nowrap;
+	}
+
+td.cell_phone
+	{
+	font-size: 9pt;
+	white-space:nowrap;
+	}	
+td.mail
+	{
+	font-size: 9pt;
+	}	
+
+td.city_phone
+	{
+	font-size: 9pt;
+	white-space:nowrap;
+	}
+
+td.position
+	{
+	width: 30%;
+	font-size: 9pt;
+	padding-right: 0px;
+	}
+
+table.staff tr td
+	{
+	padding-right: 15px;
+	}
+

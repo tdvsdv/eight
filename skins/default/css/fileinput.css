@@ -1,0 +1,78 @@
+        .customFile
+        {
+            width: 219px;
+            margin-left: -140px;
+            cursor: default;
+            height: 21px;
+            z-index: 2;
+            filter: alpha(opacity: 0);
+            position: relative;
+            opacity: 0;
+            float: left;
+			font-size: 22pt;
+        }
+        .fakeButton
+        {
+            z-index: 1;
+            position: relative;
+            /*width: 85px;
+            height: 21px;
+            background: url(../images/fileinput/attachment.gif) no-repeat left top;*/
+            float: left;
+        }
+        .blocker
+        {
+            position: relative;
+            z-index: 3;
+            width: 150px;
+            height: 21px;
+            background: url(../images/fileinput/transparent.gif);
+            float: left;
+            margin-left: -240px;
+
+        }
+        .FileName
+        {
+            float: left;
+            height: 15px;
+            font-family: Verdana;
+            font-size: 8pt;
+            color: Gray;
+            margin-left: 5px;
+            margin-top: 2px;
+            padding-top: 1px;
+            padding-left: 19px;
+            padding-right: 7px;
+
+        }
+        .minus
+        {
+            cursor: pointer;
+            margin-left: 5px;
+            width: 16px;
+            height: 16px;
+            background: url(../images/fileinput/plusminus.gif) no-repeat left -16px;
+            float: left;
+            margin-top: 3px;
+			display: none;
+        }
+
+        .space
+        {
+            margin-left: 5px;
+            width: 16px;
+            height: 16px;
+            background: url(../images/fileinput/minusgrey.png);
+            float: left;
+            margin-top: 3px;
+        }
+
+.wrapper
+  {
+  float: left;
+  width: 100%;
+  display: block;
+  margin: 3px;
+  /*border: 1px solid red;*/
+  }
+

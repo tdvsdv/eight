@@ -1,0 +1,57 @@
+﻿a
+	{
+	line-height: 130%;
+	text-decoration: none;
+	color:#336600;
+	font-family: "Verdana", "Arial";
+	border-bottom: 1px solid #b8c49d;
+	padding-bottom: 1px;
+	}
+
+a:hover, a.in_link:hover, a.no_line:hover span
+	{
+	color: #147dc0;
+	border-color: #147dc0;
+	} 
+a.in_link 
+	{
+	border-bottom: 1px dotted #a2b17f;
+	}	
+a.no_line
+	{
+	border-bottom: none;
+	}
+
+a.no_line span
+	{
+	border-bottom: 1px solid #b8c49d;
+	}
+a.no_line.in_link span
+	{
+	border-bottom: 1px dotted #a2b17f;
+	}
+	
+.L
+	{
+	float:left;
+	}
+
+div.window
+	{
+	position: relative;
+	padding: 5px;
+	overflow: hidden;
+	margin: 0px 0px 0px 0px;
+	background: white;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+
+div.window ul
+	{
+	margin: 10px;
+	padding: 0px 0px 0px 10px;
+	float: left;
+	}
+

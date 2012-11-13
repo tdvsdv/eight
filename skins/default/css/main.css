@@ -1,0 +1,258 @@
+body
+	{
+	background-color:#D0DCE0;
+	text-align: center;
+	}
+
+
+body table
+	{
+	text-align: left;
+	}
+	
+body table.main
+	{
+	/*border: 1px solid #000000;*/
+    background-color: #F7F7F7;
+	width:98%;
+	/*height:550px;*/
+	}
+
+body table.main tr
+	{
+	vertical-align: top;
+	}
+
+body table.main tr td
+	{
+	/*border: 1px solid #000000;*/
+	}
+
+body table.main tr.copyright td
+	{
+	background-color:#D0DCE0;
+	}
+	
+body table.main tr td.companies
+	{
+	background-color:#D0DCE0;
+	/*border: 1px solid red;*/
+	vertical-align: bottom;
+	padding: 0px;	
+	}	
+	
+body table.main tr td.companies div.tab
+	{
+	background-color:#e6e6e6;
+	margin-right: 1px;	
+	float: left;
+	}	
+
+body table.main tr td.companies div.border
+	{
+	margin-left: 10px;	
+	}	
+
+body table.main tr td.companies div a
+	{
+	padding: 5px 0px 1px 0px;
+	margin: 0px 5px 4px 5px;
+	display: block;
+	}	
+	
+body table.main tr td.companies div.sel
+	{
+	padding: 5px 5px 7px 5px;
+	background-color:#F7F7F7;
+	}	
+		
+	
+body table.main tr td.menu
+	{
+	width: 18%;
+	font-size: 8pt;
+	background-image: url(../images/pixel.gif);
+	background-repeat: repeat-y;	
+	}
+
+body table.main tr td.menu div.cats
+	{
+	background-color: #DDDDDD;
+	margin-bottom: 3px;
+    margin-top: 3px;
+	}
+
+body table.main tr td.menu div.cats a
+	{
+	display: block;
+	padding: 4px;
+	text-transform: uppercase;
+	}
+
+body table.main tr td.menu div.menu
+	{
+	margin-bottom: 8px;
+	}
+
+body table.main tr td.menu div.menu li
+	{
+	position:relative;
+	left: 8px;
+	color: #161616;
+	}
+
+body table.main tr td.menu div.menu hr
+	{
+	position:relative;
+	left: -8px;
+	}
+
+body table.main tr td.menu div.menu li.selected
+	{
+	position:relative;
+	left: 8px;
+	color: #990000;
+	}
+
+body table.main tr td form table.form
+	{
+	border: 0px solid red; 
+	}
+
+body table.main tr td form table.form tr
+	{
+	vertical-align: top;
+	}
+
+body table.main tr td form table.form tr td
+	{
+	border: 0px solid red;
+	font-family: Tahoma;
+	font-size: 9pt;
+	}
+
+body table.main tr td form table.form tr td
+	{
+	padding-bottom: 5px;
+	}
+
+
+table.sqltable
+	{
+	width:100%;
+	border: 0px solid red;
+	}
+
+
+table.sqltable tr
+	{
+	height:28px;
+	vertical-align: middle;
+	}
+
+table.sqltable tr th
+	{
+	/*background-repeat: no-repeat;*/
+	border: 0px solid red;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: 9pt;
+	text-align: left;
+	font-weight: normal;
+	background-color: #f0f0f0;
+	padding: 0px;
+	}
+
+/*table.sqltable tr th img
+	{
+	margin-right: 5px;
+	}*/
+	
+table.sqltable tr th div
+	{
+	padding: 6px 3px 3px 3px;
+	}
+
+th.sort a
+	{
+	display:block;
+	padding: 6px 3px 3px 25px;
+	background-image: url('../images/th.png');
+	background-position: 0px 5px;
+	background-repeat: no-repeat;
+	}
+
+table.sqltable tr th.sort.asc, table.sqltable tr th.sort.desc
+	{
+	border-top: 1px solid #325BC2;
+	}	
+
+th.sort.asc a, th.sort a:hover, th.sort.desc a:hover
+	{
+	background-position: 0px -44px;
+	}
+	
+th.sort.asc:hover a, th.sort.desc a
+	{
+	background-position: 0px -91px;
+	}
+	
+table.sqltable tr.even
+	{
+	background-color: #D9E6E3;
+	}
+
+table.sqltable tr.odd
+	{
+	background-color: #EBF1EC;
+	}
+	
+table.sqltable tr.selected
+	{
+	background-color: #f1dcc7;
+	}
+
+	
+
+table.sqltable tr td
+	{
+	border: 0px solid #B9B9B9;
+	font-family: Verdana;
+	font-size: 8pt;
+	text-align: left;
+	}
+
+
+/*-- Стили для страниц из PopUp окна--*/
+/*----------------------------------------------------------------*/
+
+
+body table.main tr td form
+	{
+	font-family: Tahoma;
+	font-size: 9pt;
+	}
+
+body table.main tr td
+	{
+	font-family: Tahoma;
+	font-size: 9pt;
+	}
+/*----------------------------------------------------------------*/
+
+	
+h5
+	{
+	color: #4e4e4e;
+	font-weight: normal;
+	}
+	
+div.tab a.window
+	{
+	background-image: url(../images/arrows_out.png);
+	background-repeat: no-repeat;
+	display: block;
+	width: 16px;
+	height: 15px;
+	background-position: 0px 3px;
+	}

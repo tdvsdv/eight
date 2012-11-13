@@ -1,0 +1,146 @@
+body
+	{
+	background:none;
+	/*background-color:#F7F7F7;*/
+	text-align: left;
+	font-family: Tahoma;
+	font-size: 9pt;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	scrollbar-face-color:#E1E1E1; /* бегунок */
+	scrollbar-track-color:#F7F7F7; /* полоска */
+    scrollbar-arrow-color:#E1E1E1; /* стрелки */
+	scrollbar-highlight-color:#E1E1E1; /* левая кайма бегунка */
+	scrollbar-3dlight-color:#E4E4E4; /* левая край. кайма */
+	scrollbar-shadow-color:#D1D1D1; /* правая кайма бегунка */
+	scrollbar-darkshadow-color:#E4E4E4; /* правая край. кайма */
+	}
+
+
+a:link
+	{
+	text-decoration: none;
+	color:#336600;
+	font-family: "Verdana", "Arial";
+	font-size: 8pt;
+	}
+a:visited
+	{
+	text-decoration: none;
+	color:#336600;
+	font-family: "Verdana", "Arial";
+	font-size: 8pt;
+	}
+a:hover 
+	{
+	position:relative;
+	top:0px;
+	left:0px;
+	text-decoration: none;
+	color: #CC0000;
+	font-family: "Verdana", "Arial"; 
+	font-size: 8pt; 
+	} 
+
+div.uploadimage
+	{
+	border: 1px solid #B2B2B2;
+	background-color: #D4D4D4;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-right: 2px;
+	text-align: center;
+	}
+
+
+body form table.form
+	{
+	border: 0px solid red;
+	}
+
+body form table.form tr
+	{
+	vertical-align: top;
+	}
+
+body form table.form tr td
+	{
+	border: 0px solid red;
+	font-family: Tahoma;
+	font-size: 9pt;
+	}
+
+body form table.form tr td
+	{
+	padding-bottom: 5px;
+	}
+
+
+table.sqltable
+	{
+	width:100%;
+	border: 0px solid red;
+	}
+
+
+table.sqltable tr
+	{
+	height:28px;
+	}
+
+table.sqltable tr th
+	{
+	background-image: url('../images/th.gif');
+	background-repeat: no-repeat;
+	border: 0px solid red;
+	font-family: Tahoma;
+	font-size: 9pt;
+	text-align: left;
+	font-weight: normal;
+	}
+
+table.sqltable tr th img
+	{
+	margin-right: 5px;
+	}
+
+table.sqltable tr th a:link, table.sqltable tr th a:visited, table.sqltable tr th a:hover
+	{
+	font-family: Tahoma;
+	color: #000000;
+	font-size: 10pt;
+	display:block;
+	}
+
+table.sqltable tr th.sortedasc, table.sqltable tr th.sorteddesc
+	{
+	background-image: url('../images/thsorted.gif');
+	}
+
+table.sqltable tr th.sortedasc img, table.sqltable tr th.sorteddesc img
+	{
+	border: 1px solid #B9B9B9;
+	}
+
+
+table.sqltable tr.even
+	{
+	background-color: #D9E6E3;
+	}
+
+table.sqltable tr.odd
+	{
+	background-color: #EBF1EC;
+	}
+
+table.sqltable tr td
+	{
+	border: 0px solid #B9B9B9;
+	font-family: Verdana;
+	font-size: 8pt;
+	text-align: left;
+	}
+
+
