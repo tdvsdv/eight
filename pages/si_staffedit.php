@@ -120,7 +120,7 @@ if($Access)
 		$table->addColumn($LDAP_TITLE_FIELD, "Должность");
 		$table->addColumn($LDAP_MAIL_FIELD, "E-mail", true);
 		$table->addColumn($LDAP_INTERNAL_PHONE_FIELD, "Внутренний", true);
-		$table->addColumn($LDAP_CITY_PHONE_FIELD, $L['city_phone'], true);
+		$table->addColumn($LDAP_CITY_PHONE_FIELD, $L->l('city_phone'), true);
 		$table->addColumn($LDAP_CELL_PHONE_FIELD, "Мобильный", true);		
 		$table->addColumn($LDAP_BIRTH_FIELD, "Д.Р.", true, 0, false, "dd.mm.yyyy");
 		$table->addColumn($LDAP_PHOTO_FIELD, "Фото", true);	
@@ -229,14 +229,14 @@ if($Access)
 
 	//Городской
 	//-------------------------------------------------------------------------------------------------		
-		$table->addPregReplace("/^([0-9]{3})([0-9]{3})$/", "\\1-\\2", $L['city_phone'], 1, $Conditions1);
-		$table->addPregReplace("/(".preg_quote($Name).")/", "<u class='found'>\\1</u>", $L['city_phone'], 1, $Conditions1);
-		$table->addPregReplace("/^$/", "x", $L['city_phone']);
+		$table->addPregReplace("/^([0-9]{3})([0-9]{3})$/", "\\1-\\2", $L->l('city_phone'), 1, $Conditions1);
+		$table->addPregReplace("/(".preg_quote($Name).")/", "<u class='found'>\\1</u>", $L->l('city_phone'), 1, $Conditions1);
+		$table->addPregReplace("/^$/", "x", $L->l('city_phone'));
 		if(@$Errors[$LDAP_CITY_PHONE_FIELD])
-			$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"".$Errors[$LDAP_CITY_PHONE_FIELD]."\"/><em>Новый городской номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", $L['city_phone'], 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"".$Errors[$LDAP_CITY_PHONE_FIELD]."\"/><em>Новый городской номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", $L->l('city_phone'), 1, $Conditions2);
 		else
-			$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"\\1\"/>", $L['city_phone'], 1, $Conditions2);	
-		$table->addPregReplace("/value=\"x\"/", "value=\"\"", $L['city_phone'], 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"\\1\"/>", $L->l('city_phone'), 1, $Conditions2);	
+		$table->addPregReplace("/value=\"x\"/", "value=\"\"", $L->l('city_phone'), 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 		
 	//Мобильный
