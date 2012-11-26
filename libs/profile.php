@@ -18,7 +18,7 @@ if($_COOKIE['dn'])
 		if($vac_to=$ldap->getValue($_COOKIE['dn'], $LDAP_ST_DATE_VACATION_FIELD))
 			$vac_to=Time::modifyDateFormat($vac_to, $VAC_DATE_FORMAT, 'dd.mm.yyyy');
 		
-		echo"<li><a href=\"newwin.php?menu_marker=si_employeeview&dn=".$_COOKIE['dn']."\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\">Профиль</a></li>";
+		echo"<li><a href=\"newwin.php?menu_marker=si_employeeview&dn=".$_COOKIE['dn']."\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\">Профиль</a></li>";
 		
 		if($VACATION)
 			{

@@ -57,7 +57,6 @@ if(! empty($Name))
 	$SearchFilter=Application::getSearchFilter($Name, $LdapListAttrs);
 
 //-------------------------------------------------------------------------------------------------------------	
-
 //Получаем правильно отсортированных сотрудников с необходимыми атрибутами LDAP, учитывая настроки сортировки из конфига
 $Staff=$ldap->getArray($OU,
  	"(&".$SearchFilter." ".$CompanyNameLdapFilter."(".$LDAP_CN_FIELD."=*)".$DIS_USERS_COND.")",

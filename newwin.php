@@ -32,7 +32,7 @@ include_once("auth.php");
 		<link rel="STYLESHEET" href="./skins/<?php echo $CURRENT_SKIN; ?>/css/staff.css" type="text/css" />
 		<link rel="STYLESHEET" href="./skins/<?php echo $CURRENT_SKIN; ?>/css/si_print_vacation_claim.css" type="text/css" />
 		<link rel="STYLESHEET" href="./skins/<?php echo $CURRENT_SKIN; ?>/css/general.css" type="text/css" />
-		<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="./js/prototype.js"></script>
 		<script type="text/javascript" src="./js/smartform.js"></script>
 		<script type="text/javascript" src="./js/staff.js"></script>

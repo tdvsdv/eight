@@ -95,7 +95,7 @@ if($Access)
 
 			echo"<ul>";
 			echo"<li><a href=\"".$_SERVER['PHP_SELF']."?menu_marker=si_stafflist\">Справочник</a></li>";		
-			echo"<li><a href=\"newwin.php?menu_marker=si_employeeview&dn=".$_COOKIE['dn']."\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\">Профиль</a></li>";					
+			echo"<li><a href=\"newwin.php?menu_marker=si_employeeview&dn=".$_COOKIE['dn']."\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\">Профиль</a></li>";					
 
 			if(@!$_SERVER['REMOTE_USER'])
 				echo"<li><a href=\"".$_SERVER['PHP_SELF']."?iamnot=1&name=".$Name."\" title=\"Нет! \">Выйти</a></li>";		
@@ -144,10 +144,10 @@ if($Access)
 	//-------------------------------------------------------------------------------------------------	
 	if($USE_DISPLAY_NAME)
 		{
-		$table->addPregReplace("/([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div>\\2</a>", "ФИО", 1, $Conditions1);
-		$table->addPregReplace("/([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\"><div class='surname'>\\2</div>\\1</a>", "ФИО", 1, $Conditions1);
-		$table->addPregReplace("/([ёA-zA-я0-1\s-]{1,})(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\2\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div></a>", "ФИО", 1, $Conditions1);
-		$table->addPregReplace("/^(CN.*)$/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\1\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\"><div class='surname'>x</div></a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div>\\2</a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\2</div>\\1</a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/([ёA-zA-я0-1\s-]{1,})(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\2\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div></a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/^(CN.*)$/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\1\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>x</div></a>", "ФИО", 1, $Conditions1);
 		
 		
 		if(@$Errors['FIO'])
@@ -160,7 +160,7 @@ if($Access)
 		}
 	else
 		{
-		$table->addPregReplace("/^[A-Za-z]+=*([ёА-яA-z0-1\s-.]+),[\S\s]+$/e", "'<a href=\"newwin.php?menu_marker=si_employeeview&dn='.'\\0'.'\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', skin: 'light'\" class=\"lightview\">___\\1</a>'", "ФИО");
+		$table->addPregReplace("/^[A-Za-z]+=*([ёА-яA-z0-1\s-.]+),[\S\s]+$/e", "'<a href=\"newwin.php?menu_marker=si_employeeview&dn='.'\\0'.'\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\">___\\1</a>'", "ФИО");
 		$table->addPregReplace("/___([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)/", "<div class='surname'>\\1</div>\\2", "ФИО");
 		//Для формата Имя О. Фамилия
 		$table->addPregReplace("/___([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)/", "<div class='surname'>\\2</div>\\1", "ФИО");		
