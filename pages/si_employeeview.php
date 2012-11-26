@@ -81,7 +81,8 @@ if(!$HIDE_CITY_PHONE_FIELD)
 
 echo "<div class=\"otherphone\"><h6>Внутренний:</h6> <".$tag.">".Staff::makeInternalPhone($ldap->getValue($dn, $LDAP_INTERNAL_PHONE_FIELD))."</".$tag."></div>";
 
-echo "<div class=\"otherphone\"><h6>Мобильный:</h6> ".Staff::makeCellPhone($ldap->getValue($dn, $LDAP_CELL_PHONE_FIELD))."</div>";
+if(!$HIDE_CELL_PHONE_FIELD)
+	echo "<div class=\"otherphone\"><h6>".$L->l('cell_phone').":</h6> ".Staff::makeCellPhone($ldap->getValue($dn, $LDAP_CELL_PHONE_FIELD))."</div>";
 
 if($HomePhone=$ldap->getValue($dn, $LDAP_HOMEPHONE_FIELD))
 	echo "<div class=\"otherphone\"><h6>Домашний:</h6> ".Staff::makeHomePhone($HomePhone)."</div>";

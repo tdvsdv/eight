@@ -309,6 +309,8 @@ abstract class Staff
 
 		if(! $GLOBALS['HIDE_CITY_PHONE_FIELD'])
 			$num++;
+		if(! $GLOBALS['HIDE_CELL_PHONE_FIELD'])
+			$num++;
 
 		if(empty($_COOKIE['dn']) && $GLOBALS['ENABLE_DANGEROUS_AUTH'])
 			$num++;
@@ -361,18 +363,20 @@ abstract class Staff
 		else
 			echo "<td>".self::highlightSearchResult(self::makeMailUrl($Staff[$GLOBALS['LDAP_MAIL_FIELD']][$key]), $Vars['search_str'])."</td>"; 
 
+
 		echo "<td><".$tag.">".self::makeInternalPhone($Staff[$GLOBALS['LDAP_INTERNAL_PHONE_FIELD']][$key])."</".$tag."></td>"; //Выводим внутренний
 		if(!$GLOBALS['HIDE_CITY_PHONE_FIELD'])
 			{
 			echo "<td><".$tag.">".self::makeCityPhone($Staff[$GLOBALS['LDAP_CITY_PHONE_FIELD']][$key])."</".$tag."></td>"; //Выводим городской
 			}
 
-
-		if(empty($Vars['search_str'])) //Если не велся поиск, то не подсвечивавем результаты	
-			echo "<td>".self::makeCellPhone($Staff[$GLOBALS['LDAP_CELL_PHONE_FIELD']][$key])."</td>"; //Выводим сотовый
-		else
-			echo "<td>".self::highlightSearchResult(self::makeCellPhone($Staff[$GLOBALS['LDAP_CELL_PHONE_FIELD']][$key]), $Vars['search_str'])."</td>"; //Делаем ссылку на полную информацию о сотруднике
-
+		if(!$GLOBALS['HIDE_CELL_PHONE_FIELD'])
+			{
+			if(empty($Vars['search_str'])) //Если не велся поиск, то не подсвечивавем результаты	
+				echo "<td>".self::makeCellPhone($Staff[$GLOBALS['LDAP_CELL_PHONE_FIELD']][$key])."</td>"; //Выводим сотовый
+			else
+				echo "<td>".self::highlightSearchResult(self::makeCellPhone($Staff[$GLOBALS['LDAP_CELL_PHONE_FIELD']][$key]), $Vars['search_str'])."</td>"; //Делаем ссылку на полную информацию о сотруднике
+			}
 
 		if(self::showComputerName($Vars['current_login'])) //Если сотрудник является администратором справочника
 			{
@@ -461,7 +465,7 @@ abstract class Application
 		$th_content=$Title;
 
 
-		if(is_array($Attr['sort'])) //Если по полю дожна позволятся сортировка
+		if(is_array(@$Attr['sort'])) //Если по полю дожна позволятся сортировка
 			{
 			$th_css_class.=" sort";
 

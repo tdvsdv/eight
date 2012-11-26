@@ -241,7 +241,7 @@ class LDAPTable
 						$ArrSorted[$i]="";
 						foreach(explode(",", $SortName) AS $V)
 							{
-							$ArrSorted[$i].=iconv($GLOBALS['CHARSET_DATA'], $GLOBALS['CHARSET_APP'], $Entries[$i][trim($V)][$k]);	
+							@$ArrSorted[$i].=iconv($GLOBALS['CHARSET_DATA'], $GLOBALS['CHARSET_APP'], $Entries[$i][trim($V)][$k]);	
 							}
 						}
 					else	
@@ -320,7 +320,7 @@ class LDAPTable
 							{
 							$Value="";
 							foreach(explode(",", $this->Attributes['name'][$j]) AS $V)
-								$Value.=self::convertValue($Entries[$AS[$i]][trim($V)][$this->Attributes['i'][array_search($ADAttributes[$j], $this->Attributes['name'])]]);													
+								@$Value.=self::convertValue($Entries[$AS[$i]][trim($V)][$this->Attributes['i'][array_search($ADAttributes[$j], $this->Attributes['name'])]]);													
 							}
 						else
 							@$Value=self::convertValue($Entries[$AS[$i]][$this->Attributes['name'][$j]][$this->Attributes['i'][array_search($ADAttributes[$j], $this->Attributes['name'])]]);
@@ -692,7 +692,7 @@ class LDAP
 							@$ArrSorted[$i].=" ".$LastVal[$key-1];
 						}
 					if(!is_array($val))
-						$ArrSorted[$i].=" ".$LastVal[$key];	
+						@$ArrSorted[$i].=" ".$LastVal[$key];	
 					//echo $ArrSorted[$i]."<br>";
 					}
 					

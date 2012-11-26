@@ -51,7 +51,8 @@ if(is_array($Staff))
 		";
 	if(!$HIDE_CITY_PHONE_FIELD)
 		echo "<th><div>".$L->l('city_phone')."</div></th>";	
-	echo "<th><div>Мобильный</div></th>";
+	if(!$HIDE_CELL_PHONE_FIELD)
+		echo "<th><div>".$L->l('cell_phone')."</div></th>";
 	if(Staff::showComputerName($Login)) //Если сотрудник является администратором справочника
 		echo "<th><div>Компьютер</div></th>";
 	if($FAVOURITE_CONTACTS && $_COOKIE['dn'])
