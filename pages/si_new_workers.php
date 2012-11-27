@@ -47,7 +47,7 @@ if(is_array($Staff))
 		<th><div>ФИО</div></th>
 		<th><div>Должность</div></th>
 		<th><div>E-mail</div></th>
-		<th><div>Внутренний</div></th>
+		<th><div>".$L->l('intrenal_phone')."</div></th>
 		";
 	if(!$HIDE_CITY_PHONE_FIELD)
 		echo "<th><div>".$L->l('city_phone')."</div></th>";	

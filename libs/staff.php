@@ -637,7 +637,7 @@ abstract class Alphabet
 	public static function printGeneralLetters()
 		{
 		echo "<fieldset id=\"move_to_letter\">
-		<legend>Быстрый переход на первую букву фамилии</legend>";
+		<legend>".$GLOBALS['L']->l('fast_move_by_first_letter_of_name')."</legend>";
 		$i=0;
 		foreach($GLOBALS['Alphabet'] AS $key=>$value)
 			{

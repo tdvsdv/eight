@@ -7,7 +7,7 @@ $CurrentVars['name']=$Name;
 ?>
 
 <fieldset class="find">
-<legend>Поиск сотрудников</legend>
+<legend><?php echo $L->l("employee_search"); ?></legend>
 
 <div id="search">
 <input type="text" id="Name" name="name" value="<?php echo $Name ?>"  />

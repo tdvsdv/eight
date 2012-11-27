@@ -72,7 +72,7 @@ if(is_array($Staff))
 
 	$url_vars=array('name' => $Name, 'only_bookmark' => $only_bookmark, 'bookmark_attr' => $bookmark_attr, 'bookmark_name' => $bookmark_name);
 
-	echo Application::getCollTitle("ФИО", 
+	echo Application::getCollTitle($L->l('full_name'), 
 									array(
 										'sort' => array(
 													    'field' => $DisplayName,
@@ -81,7 +81,7 @@ if(is_array($Staff))
 													    'url_vars' => $url_vars
 													    ),
 										 ) );
-	echo Application::getCollTitle("Должность", 
+	echo Application::getCollTitle($L->l('position'), 
 									array(
 										'sort' => array(
 													    'field' => $LDAP_TITLE_FIELD,
@@ -90,7 +90,7 @@ if(is_array($Staff))
 													    'url_vars' => $url_vars
 													    ),
 										 ) );
-	echo Application::getCollTitle("E-mail", 
+	echo Application::getCollTitle($L->l('email'), 
 									array(
 										'sort' => array(
 													    'field' => $LDAP_MAIL_FIELD,
@@ -99,7 +99,7 @@ if(is_array($Staff))
 													    'url_vars' => $url_vars
 													    ),
 										 ) );	
-	echo Application::getCollTitle("Внутренний", 
+	echo Application::getCollTitle($L->l('intrenal_phone'), 
 									array(
 										'sort' => array(
 													    'field' => $LDAP_INTERNAL_PHONE_FIELD,

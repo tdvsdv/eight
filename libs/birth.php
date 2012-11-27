@@ -26,7 +26,7 @@ if($NEAR_BIRTHDAYS)
 	
 	echo"<div class=\"heads\">
 	<fieldset class=\"birthdays\">
-	<legend>Ближайшие ".$NUM_ALARM_DAYES." дней день рождения у:</legend>";	
+	<legend>".$L->l('nearest')." ".$NUM_ALARM_DAYES." ".$L->l('they_have_birthdays').":</legend>";	
 	
 	@$_GET['birthdayssortcolumn']=($_GET['birthdayssortcolumn'])?$_GET['birthdayssortcolumn']:"Дата";
 	@$_GET['birthdayssorttype']=($_GET['birthdayssorttype'])?$_GET['birthdayssorttype']:"ASC";

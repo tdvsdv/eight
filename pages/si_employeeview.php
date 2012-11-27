@@ -79,7 +79,7 @@ else
 if(!$HIDE_CITY_PHONE_FIELD)
 	echo "<div class=\"phone\"><h6>".$L->l('city_phone').":</h6> <".$tag.">".Staff::makeCityPhone($ldap->getValue($dn, $LDAP_CITY_PHONE_FIELD))."</".$tag."></div>";
 
-echo "<div class=\"otherphone\"><h6>Внутренний:</h6> <".$tag.">".Staff::makeInternalPhone($ldap->getValue($dn, $LDAP_INTERNAL_PHONE_FIELD))."</".$tag."></div>";
+echo "<div class=\"otherphone\"><h6>".$L->l('intrenal_phone')."</h6> <".$tag.">".Staff::makeInternalPhone($ldap->getValue($dn, $LDAP_INTERNAL_PHONE_FIELD))."</".$tag."></div>";
 
 if(!$HIDE_CELL_PHONE_FIELD)
 	echo "<div class=\"otherphone\"><h6>".$L->l('cell_phone').":</h6> ".Staff::makeCellPhone($ldap->getValue($dn, $LDAP_CELL_PHONE_FIELD))."</div>";
@@ -158,14 +158,14 @@ if($USE_DISPLAY_NAME)
 	$table->addColumn($DISPLAY_NAME_FIELD.", distinguishedname", "ФИО", true, 0, false, "ad_def_full_name");
 else	
 	$table->addColumn("distinguishedname", "ФИО", true, 0, false, "ad_def_full_name");
-$table->addColumn($LDAP_INTERNAL_PHONE_FIELD, "Внутренний", true);
+$table->addColumn($LDAP_INTERNAL_PHONE_FIELD, $L->l('intrenal_phone'), true);
 $table->addColumn("title", "Должность");
 
 $table->addPregReplace("/^(.*)$/e", "Staff::makeNameUrlFromDn('\\1')", "ФИО");	
 
 $table->addPregReplace("/^\.\./", "", "Должность");
 $table->addPregReplace("/^\./", "", "Должность");
-$table->addPregReplace("/^(.*)$/e", "Staff::makeInternalPhone('\\1')", "Внутренний");
+$table->addPregReplace("/^(.*)$/e", "Staff::makeInternalPhone('\\1')", $L->l('intrenal_phone'));
 
 echo"<div id=\"people_table\">";
 
