@@ -85,7 +85,7 @@ if(!$HIDE_CELL_PHONE_FIELD)
 	echo "<div class=\"otherphone\"><h6>".$L->l('cell_phone').":</h6> ".Staff::makeCellPhone($ldap->getValue($dn, $LDAP_CELL_PHONE_FIELD))."</div>";
 
 if($HomePhone=$ldap->getValue($dn, $LDAP_HOMEPHONE_FIELD))
-	echo "<div class=\"otherphone\"><h6>Домашний:</h6> ".Staff::makeHomePhone($HomePhone)."</div>";
+	echo "<div class=\"otherphone\"><h6>".$L->l('home_phone').":</h6> ".Staff::makeHomePhone($HomePhone)."</div>";
 
 echo "<div class=\"email\"><h6>E-mail:</h6> ".Staff::makeMailUrl($ldap->getValue($dn, $LDAP_MAIL_FIELD))."</div>";
 
@@ -97,7 +97,7 @@ $DeputyDN=$ldap->getValue($dn, $LDAP_DEPUTY_FIELD);
 if($DeputyDN && $SHOW_DEPUTY && (Staff::checkInVacation($StDate, $EndDate) && $BIND_DEPUTY_AND_VACATION) || !$BIND_DEPUTY_AND_VACATION)
 	{
 	echo "<div class=\"employee birthday\">
-		<h6>Замещающий на время отпуска:</h6><br/>";
+		<h6>".$L->l('deputy_for_vacation_period').":</h6><br/>";
 
 	echo Staff::makeDeputy($DeputyDN, $ldap->getValue($DeputyDN, $DISPLAY_NAME_FIELD));
 	echo "</div>";
@@ -122,16 +122,16 @@ if($Birth)
 		} break;
 		default: $Date=explode(".", $Birth);
 	}			
-	if(!((date("Y")-$Date[2])%5)) $Jubilee="<div>В этом году круглая дата.</div>";
-	if(!((date("Y")-$Date[2])%10)) $Jubilee="<div>В этом году юбилей.</div>";
-		echo"<div class=\"birthday\"><h6>Дата рождения:</h6> ".(int) $Date[0]." ".$MONTHS[(int) $Date[1]].". ".@$Jubilee."</div>";	
+	if(!((date("Y")-$Date[2])%5)) $Jubilee="<div>".$L->l('round_date')."</div>";
+	if(!((date("Y")-$Date[2])%10)) $Jubilee="<div>".$L->l('jubilee')."</div>";
+		echo"<div class=\"birthday\"><h6>".$L->l('birthday').":</h6> ".(int) $Date[0]." ".$MONTHS[(int) $Date[1]].". ".@$Jubilee."</div>";	
 }
 //-----------------------------------------------------------------------------
 
 $ManDN=$ldap->getValue($dn, $LDAP_MANAGER_FIELD);	
 if($ManDN)
 {
-echo "<div class=\"employee\"><h6>Непосредственный руководитель:</h6><br>";
+echo "<div class=\"employee\"><h6>".$L->l('immediate_supervisor').":</h6><br>";
 	if($USE_DISPLAY_NAME)
 	{
 		echo Staff::makeNameUrlFromDn($ManDN, $ldap->getValue($ManDN, $DISPLAY_NAME_FIELD));

@@ -160,10 +160,56 @@ $j(document).ready(function(){
 		$j(this).removeClass('selected');
 		});
 
+	$j(document.body).on('click', 'a.out_xmpp_list', function(){
+		var t = $j(this);
+		//$j(this).toggleClass("in_xmpp_list out_xmpp_list")
+		var a = $j(this).clone();
+		var top=$j(this).offset().top;
+		var left=$j(this).offset().left;
+		$j(this).after(a);
+
+		a.css('position', 'absolute')
+			 .css('top', top)
+			 .css('left', left)
+			 .animate({opacity: 0, top: $j('#send_xmpp_message').offset().top, left: $j('#send_xmpp_message').offset().left}, 600, 'swing', function() {		
+							var pars='login='+$j(this).attr('data-login');
+							$j.ajax({
+								data: pars,
+								url: './pages/si_aj_add_in_xmpp_list.php', 
+								type: 'GET',
+								success: function(data, textStatus){
+									//alert(data);
+									t.toggleClass("in_xmpp_list out_xmpp_list")
+									}
+								});
+			});
+
+		return false;
+
+		});
+
+		$j(document.body).on('click', 'a.in_xmpp_list', function(){
+			$j(this).toggleClass("out_xmpp_list in_xmpp_list");
+			return false;
+			});
+
+		$j('#send_xmpp_message').click(function(){
+			Lightview.show({
+				url: 'newwin.php?menu_marker=si_send_xmpp_message',
+				type: 'iframe',
+				options: {
+			    	width: '80%',
+			    	height: '100%',
+			    	keyboard: {esc: true},
+			    	skin: 'light'
+			  		}
+				});			
+			});
+
+
 
 	$j("a.fav_true").live('click', function(){
 		var native_tr=$j(this).parents('tr').first()
-
 
 		var url='./pages/si_aj_remove_favourite.php';
 		var pars='current_user_dn='+$j('#current_user_dn').html()+'&favourite_user_dn='+$j(this).next().children('div.favourite_user_dn').html()
@@ -254,6 +300,11 @@ $j(document).ready(function(){
 
 		});
 
+		$j("textarea.auto_resizing").bind('keyup', function(){
+			if($j(this).val().split("\n").length+1>$j(this).attr("rows"))
+				$j(this).attr("rows", $j(this).val().split("\n").length+1);
+			});
+
 
 		$j("a.window").click(function(event){
 			openWindow($j(this));
@@ -275,6 +326,8 @@ $j(document).ready(function(){
 			$j("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 1100, 'swing');			
 			}
 		
+
+
 
 	});
 

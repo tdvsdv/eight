@@ -123,6 +123,9 @@ if($_COOKIE['dn'])
 </head>
 
 <body onLoad="scroll();">
+
+<div id="send_xmpp_message" class="lightview"><?php echo $L->l('send_message'); ?></div>
+
 <div class="hidden">
 <?php
 if($_COOKIE['dn'])
@@ -135,6 +138,7 @@ if($ALARM_MESSAGE)
 	echo"<div class=\"alarm\" id=\"alarm_mess\">".$ALARM_MESSAGE."</div>";
 ?>
 	
+
 <table class="main" align="center" cellpadding="5px" cellspacing="0px">
 
 <tr>
@@ -183,8 +187,8 @@ if($ALARM_MESSAGE)
 	<div class="sep_tabs">
 <?php if($ENABLE_PDF_EXPORT) 
 	{ ?>
-		<div class="tab export"><a id="exp_pdf_sep_dep" href="./pages/si_export_pdf_department.php?bookmark_name=<?php echo $BOOKMARK_NAME; ?>&bookmark_attr=<?php echo $bookmark_attr; ?>" target="_blank" class="in_link">По отделам</a></div>	
-		<div class="tab export"><a id="exp_pdf_sep_alph" href="./pages/si_export_pdf_alphabet.php?bookmark_name=<?php echo $BOOKMARK_NAME; ?>&bookmark_attr=<?php echo $bookmark_attr; ?>" target="_blank" class="in_link">По алфавиту</a></div>
+		<div class="tab export"><a id="exp_pdf_sep_dep" href="./pages/si_export_pdf_department.php?bookmark_name=<?php echo $BOOKMARK_NAME; ?>&bookmark_attr=<?php echo $bookmark_attr; ?>" target="_blank" class="in_link"><?php echo $L->l('by_department'); ?></a></div>	
+		<div class="tab export"><a id="exp_pdf_sep_alph" href="./pages/si_export_pdf_alphabet.php?bookmark_name=<?php echo $BOOKMARK_NAME; ?>&bookmark_attr=<?php echo $bookmark_attr; ?>" target="_blank" class="in_link"><?php echo $L->l('by_alphabet'); ?></a></div>
 <?php } ?>
 	</div>
 		

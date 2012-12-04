@@ -30,7 +30,8 @@ $LdapListAttrs = array($LDAP_DISTINGUISHEDNAME_FIELD, $DisplayName,
   		$LDAP_COMPUTER_FIELD,
   		$LDAP_DEPUTY_FIELD,
   		$LDAP_GUID_FIELD,
-  		$LDAP_CREATED_DATE_FIELD);
+  		$LDAP_CREATED_DATE_FIELD,
+        $LDAP_USERPRINCIPALNAME_FIELD);
 
 //Получаем правильно отсортированных сотрудников с необходимыми атрибутами LDAP
 $Staff=$ldap->getArray($OU,
@@ -55,6 +56,8 @@ if(is_array($Staff))
 		echo "<th><div>".$L->l('cell_phone')."</div></th>";
 	if(Staff::showComputerName($Login)) //Если сотрудник является администратором справочника
 		echo "<th><div>Компьютер</div></th>";
+    if($GLOBALS['XMPP_ENABLE'] && $GLOBALS['XMPP_MESSAGE_LISTS_ENABLE'] && !empty($_COOKIE['dn']))  
+        echo "<th><div></div></th>";            
 	if($FAVOURITE_CONTACTS && $_COOKIE['dn'])
 		echo "<th><div></div></th>";	
 	echo "<th><div></div></th>";

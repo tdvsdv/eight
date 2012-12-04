@@ -47,7 +47,8 @@ $LdapListAttrs = array($LDAP_DISTINGUISHEDNAME_FIELD, $DisplayName,
   		$LDAP_MANAGER_FIELD,
   		$LDAP_COMPUTER_FIELD,
   		$LDAP_DEPUTY_FIELD,
-  		$LDAP_GUID_FIELD);
+  		$LDAP_GUID_FIELD,
+  		$LDAP_USERPRINCIPALNAME_FIELD);
 
 
 // Делаем фильтр для выборки сотрудников
@@ -140,6 +141,8 @@ if(is_array($Staff))
 														    'url_vars' => $url_vars
 														    ),
 											 ) );
+	if($GLOBALS['XMPP_ENABLE'] && $GLOBALS['XMPP_MESSAGE_LISTS_ENABLE'] && !empty($_COOKIE['dn']))	
+		echo Application::getCollTitle("");
 	if($FAVOURITE_CONTACTS && $_COOKIE['dn'])
 		echo Application::getCollTitle("");
 

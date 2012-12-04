@@ -11,6 +11,17 @@ abstract class Staff
 			return false;
 		}
 
+	/*public static function makeUserLinkByLogin($Login)
+		{
+		if($GLOBALS['USE_DISPLAY_NAME'])
+			$Attrs=array($GLOBALS['LDAP_DISTINGUISHEDNAME_FIELD'], $GLOBALS['DISPLAY_NAME_FIELD']);
+		else
+			$Attrs=array($GLOBALS['LDAP_DISTINGUISHEDNAME_FIELD']);
+		$Dn_and_name=$GLOBALS['ldap']->getArray($GLOBALS['OU'], "(&(".$GLOBALS['LDAP_USERPRINCIPALNAME_FIELD']."=".$Login."))", $Attrs);
+
+		return self::makeNameUrlFromDn($Dn_and_name[$GLOBALS['LDAP_DISTINGUISHEDNAME_FIELD']][0], $Dn_and_name[$GLOBALS['DISPLAY_NAME_FIELD']][0]);
+		}*/
+
 	public static function makeNameUrlFromDn($DN, $Title="")
 		{
 		if($GLOBALS['USE_DISPLAY_NAME'])
@@ -50,7 +61,7 @@ abstract class Staff
 	public static function printDeputyInList($DN, $Title='')
 		{
 		if($GLOBALS['SHOW_DEPUTY'] && $DN && $GLOBALS['SHOW_DEPUTY_IN_LISTS'])
-			echo "<span class=\"unimportant\"> замещает </span><span class=\"deputy\">".Staff::makeNameUrlFromDn($DN, $Title)."</span>";
+			echo "<span class=\"unimportant\"> ".$GLOBALS['L']->l("deputy")." </span><span class=\"deputy\">".Staff::makeNameUrlFromDn($DN, $Title)."</span>";
 		}
 
 	// Функции форматирования телефонных номеров
@@ -241,11 +252,11 @@ abstract class Staff
 			if($VacationState===0)
 				{
 				$class='alarm';
-				$vac_title="В отпуске до ";
+				$vac_title=$GLOBALS['L']->l("in_vacation_until");
 				$vac_period=Time::getHandyDateOfDMYHI($EndDate, $GLOBALS['BIRTH_DATE_FORMAT']);
 				if($GLOBALS['menu_marker']=='si_employeeview')
 					{
-					$vac_title="<h6 class=\"alarm\">В отпуске:</h6>";
+					$vac_title="<h6 class=\"alarm\">".$GLOBALS['L']->l("in_vacation").":</h6>";
 					$vac_period=Time::getHandyDateOfDMYHI($StDate, $GLOBALS['BIRTH_DATE_FORMAT'])." &mdash; ".Time::getHandyDateOfDMYHI($EndDate, $GLOBALS['BIRTH_DATE_FORMAT']);
 					}
 				}
@@ -314,7 +325,8 @@ abstract class Staff
 
 		if(empty($_COOKIE['dn']) && $GLOBALS['ENABLE_DANGEROUS_AUTH'])
 			$num++;
-
+		if($GLOBALS['XMPP_ENABLE'] && $GLOBALS['XMPP_MESSAGE_LISTS_ENABLE'] && !empty($_COOKIE['dn']))
+			$num++;
 
 		return $num;
 
@@ -388,6 +400,17 @@ abstract class Staff
 		if( @$Staff[$GLOBALS['LDAP_CREATED_DATE_FIELD']][$key] ) 
 			echo "<td>".Time::getHandyDateOfDMYHI($Staff[$GLOBALS['LDAP_CREATED_DATE_FIELD']][$key], $GLOBALS['LDAP_CREATED_DATE_FORMAT'])."</td>"; //Выводим дату принятия на работу
 
+		if($GLOBALS['XMPP_ENABLE'] && $GLOBALS['XMPP_MESSAGE_LISTS_ENABLE'] && $_COOKIE['dn'])
+			{
+			if(is_array($_COOKIE['xmpp_list']) && in_array($Staff[$GLOBALS['LDAP_USERPRINCIPALNAME_FIELD']][$key], $_COOKIE['xmpp_list']))
+				$xmpp_link_class="in_xmpp_list";
+			else
+				$xmpp_link_class='out_xmpp_list';
+
+			echo "<td>
+				  <a href=\"#\" class=\"add_xmpp_list ".$xmpp_link_class." in_link\" title=\"".$GLOBALS['L']->l("add_contact_to_xmpp_list")."\" data-login=".$Staff[$GLOBALS['LDAP_USERPRINCIPALNAME_FIELD']][$key]."></a>
+				  </td>"; //Выводим иконку добавления сотрудника в группу рассылки
+			}
 		if($GLOBALS['FAVOURITE_CONTACTS'] && $_COOKIE['dn'])
 			{
 			if(is_array($Vars['favourite_dns']))

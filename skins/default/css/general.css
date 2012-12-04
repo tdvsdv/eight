@@ -55,3 +55,27 @@ div.window ul
 	float: left;
 	}
 
+#send_xmpp_message
+	{
+	position: fixed;
+	background-color: red;
+    -moz-transform: rotate(90deg); /* Для Firefox */
+    -ms-transform: rotate(90deg); /* Для IE */
+    -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(90deg); /* Для Opera */
+    transform: rotate(90deg);
+    right: -82px;
+    top: 50%;
+    color: #360;
+    cursor: pointer;
+    background-image: url('../images/xmpp/megaphone.png');
+    background-repeat: no-repeat;
+    background-position: 5px 5px ;
+	padding: 3px 5px 3px 25px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+
+

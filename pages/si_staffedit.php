@@ -257,8 +257,8 @@ if($Access)
 		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/", "<u class='found'>\\1</u>", "Должность", 1, $Conditions1);
 		$table->addPregReplace("/(".ucfirst(preg_quote($Name)).")/", "<u class='found'>\\1</u>", "Должность", 1, $Conditions1);
 		$table->addPregReplace("/^$/", "x", "Должность");
-		$table->addPregReplace("/([\w\W]{1,})/", "<textarea name=\"Title\">\\1</textarea>", "Должность", 1, $Conditions2);
-		$table->addPregReplace("/<textarea name=\"Title\">x<\/textarea>/", "<textarea name=\"Title\"></textarea>", "Должность", 1, $Conditions2);
+		$table->addPregReplace("/([\w\W]{1,})/", "<textarea class=\"position\" name=\"Title\">\\1</textarea>", "Должность", 1, $Conditions2);
+		$table->addPregReplace("/<textarea class=\"position\" name=\"Title\">x<\/textarea>/", "<textarea class=\"position\" name=\"Title\"></textarea>", "Должность", 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 
 

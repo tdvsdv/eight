@@ -631,6 +631,7 @@ class LDAP
 		{
 		//$BaseDN=iconv($GLOBALS['CHARSET_APP'], $GLOBALS['CHARSET_DATA'], $BaseDN);
 		//$Filter=iconv($GLOBALS['CHARSET_APP'], $GLOBALS['CHARSET_DATA'], $Filter);
+			//echo $Filter;
 		$ADAttributes=arrtolower($ADAttributes);
 		$SizeOf=sizeof($ADAttributes);
 		

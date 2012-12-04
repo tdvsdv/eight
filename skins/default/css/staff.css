@@ -116,7 +116,7 @@ input.date
 	width: 70px;
 	}
 	
-textarea
+textarea.position
 	{
 	font-family: Tahoma;	
 	font-size: 9pt;
@@ -537,4 +537,51 @@ a.fav_true, a.fav_false:hover
 	{
 	background-image: url('../images/star.png');
 	}
-	
+
+a.add_xmpp_list
+	{
+	display:block;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	}
+
+a.in_xmpp_list, a.out_xmpp_list:hover
+	{
+	background-image: url('../images/xmpp/megaphone.png');
+	}
+a.out_xmpp_list
+	{
+	background-image: url('../images/xmpp/megaphone_grey.png');
+	}
+
+div.recipients
+	{
+	width: 30%;	
+	height: 100%;
+	}
+div.recipients>div
+	{
+	border-right: 1px solid #ccc;
+	height: 100%;
+	margin-right: 10px;
+	}
+div.recipients>div input[type=checkbox]
+	{
+	vertical-align: middle;
+	}
+
+div.message
+	{
+	width: 70%;	
+	}
+div.message textarea
+	{
+	margin: 0px 0px 10px 0px;
+	width: 100%;		
+	}
+div.message input[type=submit]
+	{
+	font-size: 18pt;
+	margin: 0px;	
+	}
