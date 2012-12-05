@@ -577,11 +577,29 @@ div.message
 	}
 div.message textarea
 	{
-	margin: 0px 0px 10px 0px;
+	margin: 0px 0px 5px 0px;
 	width: 100%;		
+	}
+div.message select
+	{
+	margin: 0px 0px 5px 0px;	
 	}
 div.message input[type=submit]
 	{
 	font-size: 18pt;
 	margin: 0px;	
+	}
+div.loader
+	{
+	width: 16px;
+	height: 16px;
+	background-image: url('../images/load.gif');
+	}
+div.succes_mess
+	{
+	border: 1px solid #9FCF9F;
+	background-color: #DFFFDF;
+	color: #005F00;
+	padding: 5px;
+	margin: 0px 0px 5px 0px;
 	}

@@ -28,4 +28,5 @@ by_department: "Departments"
 by_alphabet: "Alphabet"
 add_contact_to_xmpp_list: ""
 send_message: "Отправить сообщение"
+xmpp_message_has_been_sent: "Message has been sent"
 

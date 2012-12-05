@@ -189,7 +189,17 @@ $j(document).ready(function(){
 		});
 
 		$j(document.body).on('click', 'a.in_xmpp_list', function(){
-			$j(this).toggleClass("out_xmpp_list in_xmpp_list");
+		
+			var pars='login='+$j(this).attr('data-login');
+			var t = $j(this);
+			$j.ajax({
+						data: pars,
+						url: './pages/si_aj_rem_in_xmpp_list.php', 
+						type: 'GET',
+						success: function(data, textStatus){
+							t.toggleClass("out_xmpp_list in_xmpp_list");
+							}
+						});			
 			return false;
 			});
 
@@ -326,7 +336,40 @@ $j(document).ready(function(){
 			$j("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 1100, 'swing');			
 			}
 		
+	$j("form[data-ajax=true] input:submit").click(function(){
+		$j('div.succes_mess').remove();
+		var t = $j(this);
+		t.attr('disabled', 'disabled')
+		t.after('<div class="loader"></div>');
+		var padding = t.css('padding-left')
+		$j(this).css('padding-left', 25);
+		var loader = t.next()
+		loader.css('position', 'absolute')
+					   .css('left', $j(this).offset().left+5)
+					   .css('top', $j(this).offset().top+$j(this).height()/2-5)
+		var form = $j(this).parents('form');
 
+		$j.ajax({
+			data: form.serialize(),
+			url: form.attr('action'), 
+			dataType : "json",
+			type: 'POST',
+			success: function(data, textStatus){
+				//alert(data);
+				if(data.success)
+					{
+					t.before('<div class="succes_mess">'+data.message+'</div>');
+					}
+				t.removeAttr('disabled').css('padding-left', padding)
+				loader.remove();
+				}
+			});
+		return false;
+		});
+
+	$j("#last_xmpp_messages").change(function(){
+		$j("#xmpp_messages").html($j(this).val())
+		});
 
 
 	});

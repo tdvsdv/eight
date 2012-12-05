@@ -299,4 +299,15 @@ $SHOW_EVALUATION_PERIOD_MESSAGE=true; //Отображать предупреж�
 $ENABLE_DANGEROUS_AUTH=false;
 
 $LOCALIZATION="ru"
+
+$XMPP_ENABLE=true;
+$XMPP_ENCRYPTION=false;
+$XMPP_SERVER="192.168.3.33";
+$XMPP_PORT="5222";
+$XMPP_USER="bot_fluder";
+$XMPP_PASSWORD="24234dsf";
+$XMPP_DOMAIN="your_jabber_server.your_domain.ru";
+$XMPP_ACCOUNT_END="srv-jabber";
+$XMPP_MESSAGE_LISTS_ENABLE=true;
+$XMPP_LAST_MESSAGE_TIME_OF_KEEPING = 30*24*60*60;
 ?>
