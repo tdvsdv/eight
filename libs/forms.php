@@ -594,16 +594,23 @@ class LDAP
 			}
 		}
 		
-
-	function getEntriesWithoutSizeLimit($BaseDN, $Filter, $Attributes)
+	public function ldap_search($BaseDN, $Filter, $Attributes)
 		{
-		if($this->SizeLimitCompatibility)
+		$LS=ldap_search($this->LC, $BaseDN, $Filter, $Attributes);
+		$Entries = ldap_get_entries($this->LC, $LS);
+		return $Entries;
+		}
+
+	public function getEntriesWithoutSizeLimit($BaseDN, $Filter, $Attributes, $WithoutSizeLimit = false)
+		{
+		if($this->SizeLimitCompatibility && !$WithoutSizeLimit)
 			{
 			$Attributes[]='displayname';
 			foreach($this->alphabet AS $key=>$value)
 				{
 				$MofifiedFilter=substr_replace($Filter, "(&(".$this->SizePageDividerAttr."=".$value."*)", 0, 2);
 				$LS=ldap_search($this->LC, $BaseDN, $MofifiedFilter, $Attributes);
+
 				if(is_array($Entries))
 					{
 					$Entries=array_merge($Entries, ldap_get_entries($this->LC, $LS));
@@ -627,20 +634,15 @@ class LDAP
 		return $Entries;
 		}
 		
-	function getArray($BaseDN, $Filter, $ADAttributes, $Sort=array('name'), $SortType="ASC")
+	function getArray($BaseDN, $Filter = false, $ADAttributes, $Sort=array('name'), $SortType="ASC", $WithoutSizeLimit = false)
 		{
-		//$BaseDN=iconv($GLOBALS['CHARSET_APP'], $GLOBALS['CHARSET_DATA'], $BaseDN);
-		//$Filter=iconv($GLOBALS['CHARSET_APP'], $GLOBALS['CHARSET_DATA'], $Filter);
-			//echo $Filter;
+		if(!$Filter)
+			$Filter = self::getEmptyFilter();
+
 		$ADAttributes=arrtolower($ADAttributes);
 		$SizeOf=sizeof($ADAttributes);
-		
 
-		//$LS=ldap_search($this->LC, $BaseDN, $Filter, $ADAttributes); 
-
-
-
-		if($Entries=self::getEntriesWithoutSizeLimit($BaseDN, $Filter, $ADAttributes)) 
+		if($Entries=self::getEntriesWithoutSizeLimit($BaseDN, $Filter, $ADAttributes, $WithoutSizeLimit)) 
 			{ 	
 			//Сортировка
 			//-----------------------------------------------------------------------------
@@ -754,7 +756,18 @@ class LDAP
 
 	static function escapeFilterValue($Value)
 		{
-		$Value=str_replace(array('\\', '(', ')'), array('\5c', '\28', '\29'), $Value);
+		if(is_array($Value))
+			{
+			foreach($Value AS $key => $val)
+				{
+				$Value[$key]=str_replace(array('\\', '(', ')'), array('\5c', '\28', '\29'), $val);
+				}
+			}
+		else
+			{
+			$Value=str_replace(array('\\', '(', ')'), array('\5c', '\28', '\29'), $Value);
+			}
+		
 		return $Value;
 		}
 	}

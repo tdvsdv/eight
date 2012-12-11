@@ -124,8 +124,11 @@ if($_COOKIE['dn'])
 
 <body onLoad="scroll();">
 
-<div id="send_xmpp_message" class="lightview"><?php echo $L->l('send_message'); ?></div>
+<?php 
 
+if($XMPP_ENABLE) 
+	echo "<div id=\"send_xmpp_message\" class=\"lightview\">".$L->l('send_message')."</div>";
+?>	
 <div class="hidden">
 <?php
 if($_COOKIE['dn'])

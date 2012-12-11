@@ -156,7 +156,7 @@ if(is_array($Staff))
 	//Выводим пользователей, которые есть в избраном
 	if($GLOBALS['FAVOURITE_CONTACTS'] && is_array($FavouriteDNs) && !empty($_COOKIE['dn']))
 		{
-		$Filter="(&(".$LDAP_CN_FIELD."=*)".$DIS_USERS_COND."(|(".$LDAP_DISTINGUISHEDNAME_FIELD."=".implode(")(".$LDAP_DISTINGUISHEDNAME_FIELD."=", $FavouriteDNs).")))";
+		$Filter="(&(".$LDAP_CN_FIELD."=*)".$DIS_USERS_COND."(|(".$LDAP_DISTINGUISHEDNAME_FIELD."=".implode(")(".$LDAP_DISTINGUISHEDNAME_FIELD."=", LDAP::escapeFilterValue($FavouriteDNs)).")))";
 		//echo "$Filter";
 		$Favourites=$ldap->getArray($OU, $Filter, $LdapListAttrs);
 

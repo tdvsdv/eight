@@ -564,7 +564,7 @@ div.recipients>div
 	{
 	border-right: 1px solid #ccc;
 	height: 100%;
-	margin-right: 10px;
+	margin: 0px 10px 0px 0px;
 	}
 div.recipients>div input[type=checkbox]
 	{
@@ -602,4 +602,8 @@ div.succes_mess
 	color: #005F00;
 	padding: 5px;
 	margin: 0px 0px 5px 0px;
+	}
+div.xmpp_groups
+	{
+	padding-top: 10px;
 	}

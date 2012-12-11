@@ -162,7 +162,6 @@ $j(document).ready(function(){
 
 	$j(document.body).on('click', 'a.out_xmpp_list', function(){
 		var t = $j(this);
-		//$j(this).toggleClass("in_xmpp_list out_xmpp_list")
 		var a = $j(this).clone();
 		var top=$j(this).offset().top;
 		var left=$j(this).offset().left;
@@ -203,6 +202,22 @@ $j(document).ready(function(){
 			return false;
 			});
 
+		$j(document.body).on('click', 'input[data-xmpp-item=true]', function(){	
+			var t = $j(this);
+			var pars='login='+t.val();
+			var url='./pages/si_aj_rem_in_xmpp_list.php'
+			if(t.attr("checked"))
+				var url='./pages/si_aj_add_in_xmpp_list.php'
+			$j.ajax({
+					data: pars,
+					url: url, 
+					type: 'GET',
+					success: function(data, textStatus){
+							}
+					});			
+
+		})	
+
 		$j('#send_xmpp_message').click(function(){
 			Lightview.show({
 				url: 'newwin.php?menu_marker=si_send_xmpp_message',
@@ -216,7 +231,7 @@ $j(document).ready(function(){
 				});			
 			});
 
-
+		$j('#send_xmpp_message').css('right', -1*$j('#send_xmpp_message').width()/2-4);
 
 	$j("a.fav_true").live('click', function(){
 		var native_tr=$j(this).parents('tr').first()

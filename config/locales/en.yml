@@ -27,6 +27,7 @@ jubilee: "There are jubilee in this year."
 by_department: "Departments"
 by_alphabet: "Alphabet"
 add_contact_to_xmpp_list: ""
-send_message: "Отправить сообщение"
+send_message: "Send message"
 xmpp_message_has_been_sent: "Message has been sent"
+start_of_xmpp_sign: "Best regards,"
 
