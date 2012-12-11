@@ -298,7 +298,7 @@ $SHOW_EVALUATION_PERIOD_MESSAGE=true; //Отображать предупреж�
 
 $ENABLE_DANGEROUS_AUTH=false;
 
-$LOCALIZATION="ru"
+$LOCALIZATION="ru";
 
 $XMPP_ENABLE=true;
 $XMPP_ENCRYPTION=false;
