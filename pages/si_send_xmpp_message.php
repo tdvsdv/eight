@@ -21,7 +21,7 @@ if(is_array($_COOKIE['xmpp_list']) && $XMPP_MESSAGE_LISTS_ENABLE)
 if($XMPP_LDAP_GROUPS_ENABLE)
     {
     $ou = ($XMPP_LDAP_GROUPS_OU) ? ($XMPP_LDAP_GROUPS_OU) : $OU;
-    $Filter = ($XMPP_LDAP_GROUPS_SUBSTR) ? "(&(".$LDAP_CN_FIELD."=*$XMPP_LDAP_GROUPS_SUBSTR*))" : "(&(".Staff::getEmptyFilter()."))";
+    $Filter = ($XMPP_LDAP_GROUPS_SUBSTR) ? "(&(".$LDAP_CN_FIELD."=*$XMPP_LDAP_GROUPS_SUBSTR*))" : "(&(".LDAP::getEmptyFilter()."))";
     $Groups = $ldap->getArray($ou,  $Filter, array($LDAP_XMMP_GROUP_TITLE_FIELD, $LDAP_DISTINGUISHEDNAME_FIELD), array($LDAP_XMMP_GROUP_TITLE_FIELD), "ASC", true);
 
     $i=0;
