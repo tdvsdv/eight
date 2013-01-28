@@ -118,8 +118,8 @@ if($_COOKIE['dn'])
 	<script type="text/javascript" src="./js/calendar/calendar-ru.js"></script>	
 	<script type="text/javascript" src="./js/calendar/calendar-setup.js"></script>	
 	<script type="text/javascript" src="./js/smartform.js"></script>
-	<script type="text/javascript" src="/js/spinners/spinners.min.js"></script>
-	<script type="text/javascript" src="/js/lightview/lightview.js"></script>
+	<script type="text/javascript" src="./js/spinners/spinners.min.js"></script>
+	<script type="text/javascript" src="./js/lightview/lightview.js"></script>
 </head>
 
 <body onLoad="scroll();">

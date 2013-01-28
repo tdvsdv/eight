@@ -251,7 +251,7 @@ $j(document).ready(function(){
 		if(native_tr.hasClass('favourite'))
 			{
 			native_tr.animate({
-				opacity: 0,
+				opacity: 0
 				}, 600, 'swing', function() {
 					native_tr.remove();
 					$j('#'+native_tr.attr('data-parent-id')).find('a.favourite').toggleClass("fav_false fav_true")
@@ -306,7 +306,7 @@ $j(document).ready(function(){
 			 .css('width', native_table.width())
 			 .animate({
 						top: native_tr.offset().top-100, 
-						opacity: 0,
+						opacity: 0
 						}, 300, 'swing', function() {	
 										table.remove()
 										native_table.find('tr:first th').parent().after(tr)
