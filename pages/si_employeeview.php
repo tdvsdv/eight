@@ -39,11 +39,19 @@ $FIO=preg_replace("/^([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]{1}.)[\s]{1}([ёA-zA-я-]+
 
 echo $FIO;
 
+
 if($SHOW_EVALUATION_PERIOD_MESSAGE && $LDAP_CREATED_DATE_FIELD)
 	{
+	echo "SHOW_EVALUATION_PERIOD_MESSAGE and LDAP_CREATED_DATE_FIELD";
 	$Created=$ldap->getValue($dn, $LDAP_CREATED_DATE_FIELD);	
+	echo $Created."<br>";
 	$CreatedUnixTime=Time::getTimeOfDMYHI($Created, $LDAP_CREATED_DATE_FORMAT);
+	echo $CreatedUnixTime."<br>";
+	echo time()."<br>";
+	echo Time::getOnlyDatePartFromTime(time())."<br>";
+	echo Time::getOnlyDatePartFromTime($CreatedUnixTime)."<br>";
 	$NumWorkDays=round((Time::getOnlyDatePartFromTime(time())-Time::getOnlyDatePartFromTime($CreatedUnixTime))/(24*60*60));
+	echo $NumWorkDays."<br>";
 	if($NumWorkDays<=$EVALUATION_PERIOD)
 		echo "<h6 class=\"alarm\">Новый сотрудник</h6> &mdash; <small>работает в компании <big>".$L->ending($NumWorkDays, 'день', 'дня', 'дней')."</big></small>";
 	}
