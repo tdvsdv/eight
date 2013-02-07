@@ -144,30 +144,30 @@ if($Access)
 	//-------------------------------------------------------------------------------------------------	
 	if($USE_DISPLAY_NAME)
 		{
-		$table->addPregReplace("/([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div>\\2</a>", "ФИО", 1, $Conditions1);
-		$table->addPregReplace("/([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\2</div>\\1</a>", "ФИО", 1, $Conditions1);
-		$table->addPregReplace("/([ёA-zA-я0-1\s-]{1,})(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\2\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div></a>", "ФИО", 1, $Conditions1);
-		$table->addPregReplace("/^(CN.*)$/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\1\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>x</div></a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)(CN.*)/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div>\\2</a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/([ёA-zА-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zА-я-]+)(CN.*)/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\2</div>\\1</a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/([ёA-zA-я0-1\s-]{1,})(CN.*)/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\2\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>\\1</div></a>", "ФИО", 1, $Conditions1);
+		$table->addPregReplace("/^(CN.*)$/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\1\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\"><div class='surname'>x</div></a>", "ФИО", 1, $Conditions1);
 		
 		
 		if(@$Errors['FIO'])
-			$table->addPregReplace("/([\w\W]{1,})/", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<span class=\"title\"><input class=\"error fio\" name=\"FIO\" value=\"".$Errors['FIO']."\"/><em>Новое ФИО не соответствует формату. <i></i></em></span>", "ФИО", 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<span class=\"title\"><input class=\"error fio\" name=\"FIO\" value=\"".$Errors['FIO']."\"/><em>Новое ФИО не соответствует формату. <i></i></em></span>", "ФИО", 1, $Conditions2);
 		else
 			{
-			@$table->addPregReplace("/(.*)(CN.*)/", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><input class=\"text fio\" name=\"FIO\" value=\"\\1\"/>", "ФИО", 1, $Conditions2);
-			@$table->addPregReplace("/^(CN.*)$/", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><input class=\"text fio\" name=\"FIO\" value=\"\"/>", "ФИО", 1, $Conditions2);
+			@$table->addPregReplace("/(.*)(CN.*)/u", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><input class=\"text fio\" name=\"FIO\" value=\"\\1\"/>", "ФИО", 1, $Conditions2);
+			@$table->addPregReplace("/^(CN.*)$/u", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><input class=\"text fio\" name=\"FIO\" value=\"\"/>", "ФИО", 1, $Conditions2);
 			}
 		}
 	else
 		{
-		$table->addPregReplace("/^[A-Za-z]+=*([ёА-яA-z0-1\s-.]+),[\S\s]+$/e", "'<a href=\"newwin.php?menu_marker=si_employeeview&dn='.'\\0'.'\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\">___\\1</a>'", "ФИО");
-		$table->addPregReplace("/___([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)/", "<div class='surname'>\\1</div>\\2", "ФИО");
+		$table->addPregReplace("/^[A-Za-z]+=*([ёА-яA-z0-1\s-.]+),[\S\s]+$/eu", "'<a href=\"newwin.php?menu_marker=si_employeeview&dn='.'\\0'.'\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview\">___\\1</a>'", "ФИО");
+		$table->addPregReplace("/___([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)/u", "<div class='surname'>\\1</div>\\2", "ФИО");
 		//Для формата Имя О. Фамилия
-		$table->addPregReplace("/___([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)/", "<div class='surname'>\\2</div>\\1", "ФИО");		
+		$table->addPregReplace("/___([ёA-zА-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zА-я-]+)/u", "<div class='surname'>\\2</div>\\1", "ФИО");		
 		}
-	$table->addPregReplace("/([>]{1}[А-я\s.]*)(".strtolower(preg_quote($Name)).")([А-я\s.]*[<]{1})/", "\\1<u class='found'>\\2</u>\\3", "ФИО", 1, $Conditions1);
-	$table->addPregReplace("/([>]{1}[А-я\s.]*)(".ucfirst(preg_quote($Name)).")([А-я\s.]*[<]{1})/", "\\1<u class='found'>\\2</u>\\3", "ФИО", 1, $Conditions1);		
-	$table->addPregReplace("/___/", "", "ФИО", 1, $Conditions1);
+	$table->addPregReplace("/([>]{1}[А-я\s.]*)(".strtolower(preg_quote($Name)).")([А-я\s.]*[<]{1})/u", "\\1<u class='found'>\\2</u>\\3", "ФИО", 1, $Conditions1);
+	$table->addPregReplace("/([>]{1}[А-я\s.]*)(".ucfirst(preg_quote($Name)).")([А-я\s.]*[<]{1})/u", "\\1<u class='found'>\\2</u>\\3", "ФИО", 1, $Conditions1);		
+	$table->addPregReplace("/___/u", "", "ФИО", 1, $Conditions1);
 	
 	//-------------------------------------------------------------------------------------------------			
 	
@@ -178,21 +178,21 @@ if($Access)
 	switch($BIRTH_DATE_FORMAT)
 		{
 		case 'yyyy-mm-dd':
-			$table->addPregReplace("/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/", "\\3.\\2.\\1", "Д.Р.", 1);		
+			$table->addPregReplace("/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/u", "\\3.\\2.\\1", "Д.Р.", 1);		
 		break;
 		case 'dd.mm.yyyy':
-			$table->addPregReplace("/^([0-9]{2}\.[0-9]{2}\.[0-9]{4})$/", "\\1", "Д.Р.", 1);
+			$table->addPregReplace("/^([0-9]{2}\.[0-9]{2}\.[0-9]{4})$/u", "\\1", "Д.Р.", 1);
 		break;
 		default:
-			$table->addPregReplace("/^([0-9]{2}\.[0-9]{2}\.[0-9]{4})$/", "\\1", "Д.Р.", 1);
+			$table->addPregReplace("/^([0-9]{2}\.[0-9]{2}\.[0-9]{4})$/u", "\\1", "Д.Р.", 1);
 		}		
 		
 		
-		$table->addPregReplace("/^$/", "x", "Д.Р.", 1);
+		$table->addPregReplace("/^$/u", "x", "Д.Р.", 1);
 		if(@$Errors[$LDAP_BIRTH_FIELD])	
-			$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error telephonenumber\" name=\"Birthday\"  id=\"Birthday\" value=\"".$Errors['birthday']."\"/><em>Новая Д.Р. не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "Д.Р.", 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<span class=\"title\"><input class=\"error telephonenumber\" name=\"Birthday\"  id=\"Birthday\" value=\"".$Errors['birthday']."\"/><em>Новая Д.Р. не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "Д.Р.", 1, $Conditions2);
 		else
-			$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text telephonenumber\" name=\"Birthday\"  id=\"Birthday\" value=\"\\1\"/>", "Д.Р.", 1, $Conditions2);		
+			$table->addPregReplace("/([\w\W]{1,})/u", "<input class=\"text telephonenumber\" name=\"Birthday\"  id=\"Birthday\" value=\"\\1\"/>", "Д.Р.", 1, $Conditions2);		
 		$table->addPregReplace("/value=\"x\"/", "value=\"\"", "Д.Р.", 1, $Conditions2);	
 	//-------------------------------------------------------------------------------------------------		
 		
@@ -200,83 +200,83 @@ if($Access)
 		
 	//E-mail
 	//-------------------------------------------------------------------------------------------------		
-		$table->addPregReplace("/([A-z0-9_\.\-]{1,20}@[A-z0-9\.\-]{1,20}\.[A-z]{2,4})/", "<a href='mailto:\\1'>\\1</a>", "E-mail", 1, $Conditions1);
+		$table->addPregReplace("/([A-z0-9_\.\-]{1,20}@[A-z0-9\.\-]{1,20}\.[A-z]{2,4})/u", "<a href='mailto:\\1'>\\1</a>", "E-mail", 1, $Conditions1);
 		$table->addPregReplace("/^$/", "x", "E-mail");	
 		if(@$Errors[$LDAP_MAIL_FIELD])
 			if($USE_DISPLAY_NAME)
-				$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"".$Errors[$LDAP_MAIL_FIELD]."\"/><em>Новый e-mail не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "E-mail", 1, $Conditions2);
+				$table->addPregReplace("/([\w\W]{1,})/u", "<span class=\"title\"><input class=\"error mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"".$Errors[$LDAP_MAIL_FIELD]."\"/><em>Новый e-mail не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "E-mail", 1, $Conditions2);
 			else	
-				$table->addPregReplace("/([\w\W]{1,})/", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><span class=\"title\"><input class=\"error mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"".$Errors[$LDAP_MAIL_FIELD]."\"/><em>Новый e-mail не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "E-mail", 1, $Conditions2);
+				$table->addPregReplace("/([\w\W]{1,})/u", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><span class=\"title\"><input class=\"error mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"".$Errors[$LDAP_MAIL_FIELD]."\"/><em>Новый e-mail не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "E-mail", 1, $Conditions2);
 		else
 			if($USE_DISPLAY_NAME)
-				$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"\\1\"/>", "E-mail", 1, $Conditions2);
+				$table->addPregReplace("/([\w\W]{1,})/u", "<input class=\"text mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"\\1\"/>", "E-mail", 1, $Conditions2);
 			else
-				$table->addPregReplace("/([\w\W]{1,})/", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><input class=\"text mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"\\1\"/>", "E-mail", 1, $Conditions2);
+				$table->addPregReplace("/([\w\W]{1,})/u", "<form action=\"".$_SERVER['PHP_SELF']."?menu_marker=si_staffedit&dn=".$dn."&FormSend=1&name=".$Name."\" method=\"POST\"><input type=\"hidden\" name=\"bookmark_attr\" value=\"".$bookmark_attr."\" /><input type=\"hidden\" name=\"bookmark_name\" value=\"".$BOOKMARK_NAME."\" />".(($_GET['form_sent']||$_POST['form_sent'])?"<input type=\"hidden\" name=\"form_sent\" value=\"1\" />":"")."<input type=\"hidden\" name=\"only_bookmark\" value=\"".$only_bookmark."\" /><input class=\"text mail\" name=\"".$LDAP_MAIL_FIELD."\" value=\"\\1\"/>", "E-mail", 1, $Conditions2);
 				
-		$table->addPregReplace("/value=\"x\"/", "value=\"\"", "E-mail", 1, $Conditions2);
+		$table->addPregReplace("/value=\"x\"/u", "value=\"\"", "E-mail", 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 
 	//Внутренний
 	//-------------------------------------------------------------------------------------------------		
-		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/", "<u class='found'>\\1</u>", $L->l('intrenal_phone'), 1, $Conditions1);
-		$table->addPregReplace("/^$/", "x", $L->l('intrenal_phone'));
+		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/u", "<u class='found'>\\1</u>", $L->l('intrenal_phone'), 1, $Conditions1);
+		$table->addPregReplace("/^$/u", "x", $L->l('intrenal_phone'));
 		if(@$Errors[$LDAP_INTERNAL_PHONE_FIELD])
-			$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error othertelephone\" name=\"".$LDAP_INTERNAL_PHONE_FIELD."\" value=\"".$Errors[$LDAP_INTERNAL_PHONE_FIELD]."\"/><em>Новый внутренний номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", $L->l('intrenal_phone'), 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<span class=\"title\"><input class=\"error othertelephone\" name=\"".$LDAP_INTERNAL_PHONE_FIELD."\" value=\"".$Errors[$LDAP_INTERNAL_PHONE_FIELD]."\"/><em>Новый внутренний номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", $L->l('intrenal_phone'), 1, $Conditions2);
 		else
-			$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text othertelephone\" name=\"".$LDAP_INTERNAL_PHONE_FIELD."\" value=\"\\1\"/>", $L->l('intrenal_phone'), 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<input class=\"text othertelephone\" name=\"".$LDAP_INTERNAL_PHONE_FIELD."\" value=\"\\1\"/>", $L->l('intrenal_phone'), 1, $Conditions2);
 		$table->addPregReplace("/value=\"x\"/", "value=\"\"", $L->l('intrenal_phone'), 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------
 
 	//Городской
 	//-------------------------------------------------------------------------------------------------		
-		$table->addPregReplace("/^([0-9]{3})([0-9]{3})$/", "\\1-\\2", $L->l('city_phone'), 1, $Conditions1);
-		$table->addPregReplace("/(".preg_quote($Name).")/", "<u class='found'>\\1</u>", $L->l('city_phone'), 1, $Conditions1);
-		$table->addPregReplace("/^$/", "x", $L->l('city_phone'));
+		$table->addPregReplace("/^([0-9]{3})([0-9]{3})$/u", "\\1-\\2", $L->l('city_phone'), 1, $Conditions1);
+		$table->addPregReplace("/(".preg_quote($Name).")/u", "<u class='found'>\\1</u>", $L->l('city_phone'), 1, $Conditions1);
+		$table->addPregReplace("/^$/u", "x", $L->l('city_phone'));
 		if(@$Errors[$LDAP_CITY_PHONE_FIELD])
-			$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"".$Errors[$LDAP_CITY_PHONE_FIELD]."\"/><em>Новый городской номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", $L->l('city_phone'), 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<span class=\"title\"><input class=\"error telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"".$Errors[$LDAP_CITY_PHONE_FIELD]."\"/><em>Новый городской номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", $L->l('city_phone'), 1, $Conditions2);
 		else
-			$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"\\1\"/>", $L->l('city_phone'), 1, $Conditions2);	
-		$table->addPregReplace("/value=\"x\"/", "value=\"\"", $L->l('city_phone'), 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<input class=\"text telephonenumber\" name=\"".$LDAP_CITY_PHONE_FIELD."\" value=\"\\1\"/>", $L->l('city_phone'), 1, $Conditions2);	
+		$table->addPregReplace("/value=\"x\"/u", "value=\"\"", $L->l('city_phone'), 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 		
 	//Мобильный
 	//-------------------------------------------------------------------------------------------------		
-		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/", "<u class='found'>\\1</u>", "Мобильный", 1, $Conditions1);
-		$table->addPregReplace("/^$/", "x", "Мобильный");
+		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/u", "<u class='found'>\\1</u>", "Мобильный", 1, $Conditions1);
+		$table->addPregReplace("/^$/u", "x", "Мобильный");
 		if(@$Errors[$LDAP_CELL_PHONE_FIELD])
-			$table->addPregReplace("/([\w\W]{1,})/", "<span class=\"title\"><input class=\"error mobile\" name=\"".$LDAP_CELL_PHONE_FIELD."\" value=\"".$Errors[$LDAP_CELL_PHONE_FIELD]."\"/><em>Новый мобильный номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "Мобильный", 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<span class=\"title\"><input class=\"error mobile\" name=\"".$LDAP_CELL_PHONE_FIELD."\" value=\"".$Errors[$LDAP_CELL_PHONE_FIELD]."\"/><em>Новый мобильный номер не соответствует формату. <br/>Действующие значение: <b> \\1 </b><i></i></em></span>", "Мобильный", 1, $Conditions2);
 		else
-			$table->addPregReplace("/([\w\W]{1,})/", "<input class=\"text mobile\" name=\"".$LDAP_CELL_PHONE_FIELD."\" value=\"\\1\"/>", "Мобильный", 1, $Conditions2);
-		$table->addPregReplace("/value=\"x\"/", "value=\"\"", "Мобильный", 1, $Conditions2);
+			$table->addPregReplace("/([\w\W]{1,})/u", "<input class=\"text mobile\" name=\"".$LDAP_CELL_PHONE_FIELD."\" value=\"\\1\"/>", "Мобильный", 1, $Conditions2);
+		$table->addPregReplace("/value=\"x\"/u", "value=\"\"", "Мобильный", 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 
 	//Должность
 	//-------------------------------------------------------------------------------------------------	
-		$table->addPregReplace("/^\.\./", "", "Должность");
-		$table->addPregReplace("/^\./", "", "Должность");
-		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/", "<u class='found'>\\1</u>", "Должность", 1, $Conditions1);
-		$table->addPregReplace("/(".ucfirst(preg_quote($Name)).")/", "<u class='found'>\\1</u>", "Должность", 1, $Conditions1);
-		$table->addPregReplace("/^$/", "x", "Должность");
-		$table->addPregReplace("/([\w\W]{1,})/", "<textarea class=\"position\" name=\"Title\">\\1</textarea>", "Должность", 1, $Conditions2);
-		$table->addPregReplace("/<textarea class=\"position\" name=\"Title\">x<\/textarea>/", "<textarea class=\"position\" name=\"Title\"></textarea>", "Должность", 1, $Conditions2);
+		$table->addPregReplace("/^\.\./u", "", "Должность");
+		$table->addPregReplace("/^\./u", "", "Должность");
+		$table->addPregReplace("/(".strtolower(preg_quote($Name)).")/u", "<u class='found'>\\1</u>", "Должность", 1, $Conditions1);
+		$table->addPregReplace("/(".ucfirst(preg_quote($Name)).")/u", "<u class='found'>\\1</u>", "Должность", 1, $Conditions1);
+		$table->addPregReplace("/^$/u", "x", "Должность");
+		$table->addPregReplace("/([\w\W]{1,})/u", "<textarea class=\"position\" name=\"Title\">\\1</textarea>", "Должность", 1, $Conditions2);
+		$table->addPregReplace("/<textarea class=\"position\" name=\"Title\">x<\/textarea>/u", "<textarea class=\"position\" name=\"Title\"></textarea>", "Должность", 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 
 
 	//Кнопка
 	//-------------------------------------------------------------------------------------------------		
 
-		@$table->addPregReplace("/^(.*)$/", "<a href=\"?menu_marker=si_staffedit&dn=\\1&sortcolumn=".$_GET['sortcolumn']."&sorttype=".$_GET['sorttype']."&name=".$Name."&bookmark_attr=".$bookmark_attr."&bookmark_name=".$BOOKMARK_NAME."&only_bookmark=".$only_bookmark.(($_GET['form_sent']||$_POST['form_sent'])?"&form_sent=1":"")."\"><img border=\"0\" src=\"./skins/".$CURRENT_SKIN."/images/vcard.png\" width=\"48\" height=\"33\" title=\"Редактировать\"/></a>", "Править", 1, $Conditions1);
-		$table->addPregReplace("/^(.*)$/", "<input type=\"image\" src=\"./skins/".$CURRENT_SKIN."/images/vcard_check.png\" width=\"48\" height=\"41\" title=\"Применить изменения\"/><div id=\"IDForScroll\" ></div></form>", "Править", 1, $Conditions2);
+		@$table->addPregReplace("/^(.*)$/u", "<a href=\"?menu_marker=si_staffedit&dn=\\1&sortcolumn=".$_GET['sortcolumn']."&sorttype=".$_GET['sorttype']."&name=".$Name."&bookmark_attr=".$bookmark_attr."&bookmark_name=".$BOOKMARK_NAME."&only_bookmark=".$only_bookmark.(($_GET['form_sent']||$_POST['form_sent'])?"&form_sent=1":"")."\"><img border=\"0\" src=\"./skins/".$CURRENT_SKIN."/images/vcard.png\" width=\"48\" height=\"33\" title=\"Редактировать\"/></a>", "Править", 1, $Conditions1);
+		$table->addPregReplace("/^(.*)$/u", "<input type=\"image\" src=\"./skins/".$CURRENT_SKIN."/images/vcard_check.png\" width=\"48\" height=\"41\" title=\"Применить изменения\"/><div id=\"IDForScroll\" ></div></form>", "Править", 1, $Conditions2);
 	//-------------------------------------------------------------------------------------------------	
 		
 	//Фото
 	//-------------------------------------------------------------------------------------------------		
-		$table->addPregReplace("/^([\w\W]{1,}$)/", "Есть", "Фото", 1);
-		$table->addPregReplace("/^$/", "x", "Фото", 1);	
+		$table->addPregReplace("/^([\w\W]{1,}$)/u", "Есть", "Фото", 1);
+		$table->addPregReplace("/^$/u", "x", "Фото", 1);	
 		$Conditions3[$LDAP_OBJECTCLASS_FIELD]['=']="user";
 		$Conditions3[$LDAP_DISTINGUISHEDNAME_FIELD]['=']=$dn;
-		$table->addPregReplace("/^Есть$/", "<iframe allowtransparency=\"true\" src=\"./newwin.php?menu_marker=si_staff_add_photo&ButTitle=Изменить&dn=".$dn."\" frameborder=\"0\" scrolling=\"no\" width=\"70\" height=\"40\"></iframe>", "Фото", 1, $Conditions3);
-		$table->addPregReplace("/^x$/", "<iframe allowtransparency=\"true\" src=\"./newwin.php?menu_marker=si_staff_add_photo&ButTitle=Добавить&dn=".$dn."\" frameborder=\"0\" scrolling=\"no\" width=\"70\" height=\"40\"></iframe>", "Фото", 1, $Conditions3);
+		$table->addPregReplace("/^Есть$/u", "<iframe allowtransparency=\"true\" src=\"./newwin.php?menu_marker=si_staff_add_photo&ButTitle=Изменить&dn=".$dn."\" frameborder=\"0\" scrolling=\"no\" width=\"70\" height=\"40\"></iframe>", "Фото", 1, $Conditions3);
+		$table->addPregReplace("/^x$/u", "<iframe allowtransparency=\"true\" src=\"./newwin.php?menu_marker=si_staff_add_photo&ButTitle=Добавить&dn=".$dn."\" frameborder=\"0\" scrolling=\"no\" width=\"70\" height=\"40\"></iframe>", "Фото", 1, $Conditions3);
 	//-------------------------------------------------------------------------------------------------	
 
 		$cn=($Name=="*")?"*":"*".$Name."*";	

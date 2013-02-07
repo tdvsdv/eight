@@ -34,8 +34,8 @@ if($USE_DISPLAY_NAME)
 else
 	$Name=$ldap->getValue($dn, "name");
 
-$FIO=preg_replace("/^([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)$/", "<div class=\"surname_head\">$1</div><div class=\"name\">$2</div>", $Name);
-$FIO=preg_replace("/^([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]{1}.)[\s]{1}([ёA-zA-я-]+)$/", "<div class=\"surname_head\">$2</div><div class=\"name\">$1</div>", $FIO);
+$FIO=preg_replace("/^([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)$/u", "<div class=\"surname_head\">$1</div><div class=\"name\">$2</div>", $Name);
+$FIO=preg_replace("/^([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]{1}.)[\s]{1}([ёA-zА-я-]+)$/u", "<div class=\"surname_head\">$2</div><div class=\"name\">$1</div>", $FIO);
 
 echo $FIO;
 
@@ -161,11 +161,11 @@ else
 $table->addColumn($LDAP_INTERNAL_PHONE_FIELD, $L->l('intrenal_phone'), true);
 $table->addColumn("title", "Должность");
 
-$table->addPregReplace("/^(.*)$/e", "Staff::makeNameUrlFromDn('\\1')", "ФИО");	
+$table->addPregReplace("/^(.*)$/eu", "Staff::makeNameUrlFromDn('\\1')", "ФИО");	
 
-$table->addPregReplace("/^\.\./", "", "Должность");
-$table->addPregReplace("/^\./", "", "Должность");
-$table->addPregReplace("/^(.*)$/e", "Staff::makeInternalPhone('\\1')", $L->l('intrenal_phone'));
+$table->addPregReplace("/^\.\./u", "", "Должность");
+$table->addPregReplace("/^\./u", "", "Должность");
+$table->addPregReplace("/^(.*)$/eu", "Staff::makeInternalPhone('\\1')", $L->l('intrenal_phone'));
 
 echo"<div id=\"people_table\">";
 

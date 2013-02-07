@@ -18,8 +18,8 @@ function get_phone_attr($phone = '', $convert = true, $trim = true)
     // очистка от лишнего мусора с сохранением информации о "плюсе" в начале номера
     $phone=trim($phone);
     $plus = ($phone[0] == '+');
-	$OriginalPhone = preg_replace("/[^0-9A-Za-z_-\s]/", "", $phone); /* оригинальное форматирование номера */
-    $phone = preg_replace("/[^0-9A-Za-z]/", "", $phone);
+	$OriginalPhone = preg_replace("/[^0-9A-Za-z_-\s]/u", "", $phone); /* оригинальное форматирование номера */
+    $phone = preg_replace("/[^0-9A-Za-z]/u", "", $phone);
     
 
     // конвертируем буквенный номер в цифровой

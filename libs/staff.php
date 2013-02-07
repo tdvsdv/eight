@@ -26,17 +26,17 @@ abstract class Staff
 		{
 		if($GLOBALS['USE_DISPLAY_NAME'])
 			{
-			$DN=preg_replace("/([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'>\\1</span> \\2</a>", $Title.$DN);
-			$DN=preg_replace("/([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'>\\2</span> \\1</a>", $DN);	
-			$DN=preg_replace("/([ёA-zA-я0-9№\s-]{1,})(CN.*)/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\2\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'> \\1</span></a>", $DN);		
-			$DN=preg_replace("/^CN=([ёA-zA-я0-9\s\.-]{1,})(.*)$/", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\0\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'> \\1</span></a>", $DN);		
+			$DN=preg_replace("/([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)(CN.*)/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'>\\1</span> \\2</a>", $Title.$DN);
+			$DN=preg_replace("/([ёA-zА-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zА-я-]+)(CN.*)/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\3\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'>\\2</span> \\1</a>", $DN);	
+			$DN=preg_replace("/([ёA-zA-я0-9№\s-]{1,})(CN.*)/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\2\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'> \\1</span></a>", $DN);		
+			$DN=preg_replace("/^CN=([ёA-zA-я0-9\s\.-]{1,})(.*)$/u", "<a href=\"newwin.php?menu_marker=si_employeeview&dn=\\0\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\"><span class='surname'> \\1</span></a>", $DN);		
 			}
 		else
 			{
-			$DN=preg_replace("/^[A-Za-z]+=*([ёА-яA-z0-9\s-.]+),[\S\s]+$/e", "'<a href=\"newwin.php?menu_marker=si_employeeview&dn='.'\\0'.'\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\">___\\1</a>'", $DN);
-			$DN=preg_replace("/___([ёA-zA-я-]+)[\s]{1}([ёA-zA-я-]+[\s]{1}[ёA-zA-я-]+)/", "<span class='surname'>\\1</span> \\2", $DN);
+			$DN=preg_replace("/^[A-Za-z]+=*([ёА-яA-z0-9\s-.]+),[\S\s]+$/eu", "'<a href=\"newwin.php?menu_marker=si_employeeview&dn='.'\\0'.'\" data-lightview-type=\"iframe\" data-lightview-options=\"width: '80%', height: '100%', keyboard: {esc: true}, skin: 'light'\" class=\"lightview in_link\">___\\1</a>'", $DN);
+			$DN=preg_replace("/___([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)/u", "<span class='surname'>\\1</span> \\2", $DN);
 			//Для формата Имя О. Фамилия
-			$DN=preg_replace("/___([ёA-zA-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zA-я-]+)/", "<span class='surname'>\\2</span> \\1", $DN);	
+			$DN=preg_replace("/___([ёA-zА-я-]+[\s]{1}[ёA-zA-я]{1}.)[\s]{1}([ёA-zА-я-]+)/u", "<span class='surname'>\\2</span> \\1", $DN);	
 			}	
 		return $DN;
 		}
@@ -44,7 +44,7 @@ abstract class Staff
 	public static function makeMailUrl($Mail)
 		{
 		if($Mail)
-			return preg_replace("/([A-z0-9_\.\-]{1,20}@[A-z0-9\.\-]{1,20}\.[A-z]{2,4})/", "<a href='mailto:\\1' class='in_link'>\\1</a>", $Mail);
+			return preg_replace("/([A-z0-9_\.\-]{1,20}@[A-z0-9\.\-]{1,20}\.[A-z]{2,4})/u", "<a href='mailto:\\1' class='in_link'>\\1</a>", $Mail);
 		else
 			return "x";
 		}
@@ -174,7 +174,7 @@ abstract class Staff
 	public static function makeTitle($Val)
 		{
 		if($Val)
-			return preg_replace('/(?:\"([^\"]+)\")/', '&laquo;\\1&raquo;', $Val);
+			return preg_replace('/(?:\"([^\"]+)\")/u', '&laquo;\\1&raquo;', $Val);
 		else
 			return "x";	
 		}
@@ -183,7 +183,7 @@ abstract class Staff
 		{
 		if($Val)
 			{
-			$return="<span class=\"dep_name\">".preg_replace('/(?:\"([^\"]+)\")/', '&laquo;\\1&raquo;', str_replace("\\", " &rarr; ", $Val))."</span>";	
+			$return="<span class=\"dep_name\">".preg_replace('/(?:\"([^\"]+)\")/u', '&laquo;\\1&raquo;', str_replace("\\", " &rarr; ", $Val))."</span>";	
 			if($MakeAdd)
 				@$return.=$GLOBALS['DEP_ADD'][$Val];			
 			return $return;
