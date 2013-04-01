@@ -62,7 +62,7 @@ if(! empty($Name))
 $Staff=$ldap->getArray($OU,
  	"(&".$SearchFilter." ".$CompanyNameLdapFilter."(".$LDAP_CN_FIELD."=*)".$DIS_USERS_COND.")",
 	$LdapListAttrs,
-  	array($sort_field), $sort_order);
+  	array($sort_field, array($sort_field =>"ad_def_full_name")), $sort_order);
 
 if(is_array($Staff))
 {

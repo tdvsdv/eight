@@ -22,6 +22,22 @@ abstract class Staff
 		return self::makeNameUrlFromDn($Dn_and_name[$GLOBALS['LDAP_DISTINGUISHEDNAME_FIELD']][0], $Dn_and_name[$GLOBALS['DISPLAY_NAME_FIELD']][0]);
 		}*/
 
+	public function getSurname($value)
+		{
+		if($GLOBALS['USE_DISPLAY_NAME'])
+			{
+			$fio = explode(" ", $value);
+			if(preg_match("/([ёA-zА-я-]+[\s]{1}[ёA-zА-я]{1}.)[\s]{1}([ёA-zА-я-]+)/u", $value))
+				return $fio[2];
+			else
+				return $fio[0];
+			}
+		else
+			{
+			return $value; //Не правильно
+			}
+		}
+
 	public static function makeNameUrlFromDn($DN, $Title="")
 		{
 		if($GLOBALS['USE_DISPLAY_NAME'])
