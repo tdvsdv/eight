@@ -121,10 +121,15 @@ if($Birth)
 			$Date=explode(".", $Birth);
 		} break;
 		default: $Date=explode(".", $Birth);
-	}			
-	if(!((date("Y")-$Date[2])%5)) $Jubilee="<div>".$L->l('round_date')."</div>";
-	if(!((date("Y")-$Date[2])%10)) $Jubilee="<div>".$L->l('jubilee')."</div>";
-		echo"<div class=\"birthday\"><h6>".$L->l('birthday').":</h6> ".(int) $Date[0]." ".$MONTHS[(int) $Date[1]].". ".@$Jubilee."</div>";	
+	}
+
+	$Jubilee="";
+	if($SHOW_JUBILEE_INFO)
+		{	
+		if(!((date("Y")-$Date[2])%5)) $Jubilee="<div>".$L->l('round_date')."</div>";
+		if(!((date("Y")-$Date[2])%10)) $Jubilee="<div>".$L->l('jubilee')."</div>";
+		}
+	echo"<div class=\"birthday\"><h6>".$L->l('birthday').":</h6> ".(int) $Date[0]." ".$MONTHS[(int) $Date[1]].". ".@$Jubilee."</div>";	
 }
 //-----------------------------------------------------------------------------
 
