@@ -64,6 +64,14 @@ abstract class Staff
 		else
 			return "x";
 		}
+
+	public static function makePlainText($Var)
+		{
+		if($Var)
+			return $Var;
+		else
+			return "x";
+		}
 		
 
 	public static function makeDeputy($DN, $Title='')
@@ -338,6 +346,9 @@ abstract class Staff
 			$num++;
 		if(! $GLOBALS['HIDE_CELL_PHONE_FIELD'])
 			$num++;
+		if(! $GLOBALS['HIDE_ROOM_NUMBER'])
+			$num++;
+
 
 		if(empty($_COOKIE['dn']) && $GLOBALS['ENABLE_DANGEROUS_AUTH'])
 			$num++;
@@ -395,6 +406,13 @@ abstract class Staff
 		else
 			echo "<td>".self::highlightSearchResult(self::makeMailUrl($Staff[$GLOBALS['LDAP_MAIL_FIELD']][$key]), $Vars['search_str'])."</td>"; 
 
+		if(!$GLOBALS['HIDE_ROOM_NUMBER'])
+			{
+			if(empty($Vars['search_str'])) //Если не велся поиск, то не подсвечивавем результаты	
+				echo "<td>".self::makePlainText($Staff[$GLOBALS['LDAP_ROOM_NUMBER_FIELD']][$key])."</td>"; //Выводим сотовый
+			else
+				echo "<td>".self::highlightSearchResult(self::makePlainText($Staff[$GLOBALS['LDAP_ROOM_NUMBER_FIELD']][$key]), $Vars['search_str'])."</td>"; //Делаем ссылку на полную информацию о сотруднике
+			}
 
 		echo "<td><".$tag.">".self::makeInternalPhone($Staff[$GLOBALS['LDAP_INTERNAL_PHONE_FIELD']][$key])."</".$tag."></td>"; //Выводим внутренний
 		if(!$GLOBALS['HIDE_CITY_PHONE_FIELD'])

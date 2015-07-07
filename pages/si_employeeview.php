@@ -83,7 +83,7 @@ else
 if(!$HIDE_CITY_PHONE_FIELD)
 	echo "<div class=\"phone\"><h6>".$L->l('city_phone').":</h6> <".$tag.">".Staff::makeCityPhone($ldap->getValue($dn, $LDAP_CITY_PHONE_FIELD))."</".$tag."></div>";
 
-echo "<div class=\"otherphone\"><h6>".$L->l('intrenal_phone')."</h6> <".$tag.">".Staff::makeInternalPhone($ldap->getValue($dn, $LDAP_INTERNAL_PHONE_FIELD))."</".$tag."></div>";
+echo "<div class=\"otherphone\"><h6>".$L->l('intrenal_phone').":</h6> <".$tag.">".Staff::makeInternalPhone($ldap->getValue($dn, $LDAP_INTERNAL_PHONE_FIELD))."</".$tag."></div>";
 
 if(!$HIDE_CELL_PHONE_FIELD)
 	echo "<div class=\"otherphone\"><h6>".$L->l('cell_phone').":</h6> ".Staff::makeCellPhone($ldap->getValue($dn, $LDAP_CELL_PHONE_FIELD))."</div>";
@@ -91,7 +91,12 @@ if(!$HIDE_CELL_PHONE_FIELD)
 if($HomePhone=$ldap->getValue($dn, $LDAP_HOMEPHONE_FIELD))
 	echo "<div class=\"otherphone\"><h6>".$L->l('home_phone').":</h6> ".Staff::makeHomePhone($HomePhone)."</div>";
 
+if(!$HIDE_ROOM_NUMBER)
+	echo "<div class=\"otherphone\"><h6>".$L->l('room_number').":</h6> ".Staff::makePlainText($ldap->getValue($dn, $LDAP_ROOM_NUMBER_FIELD))."</div>";
+
 echo "<div class=\"email\"><h6>E-mail:</h6> ".Staff::makeMailUrl($ldap->getValue($dn, $LDAP_MAIL_FIELD))."</div>";
+
+
 
 $StDate=$ldap->getValue($dn, $LDAP_ST_DATE_VACATION_FIELD);
 $EndDate=$ldap->getValue($dn, $LDAP_END_DATE_VACATION_FIELD);

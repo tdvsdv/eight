@@ -48,7 +48,8 @@ $LdapListAttrs = array($LDAP_DISTINGUISHEDNAME_FIELD, $DisplayName,
   		$LDAP_COMPUTER_FIELD,
   		$LDAP_DEPUTY_FIELD,
   		$LDAP_GUID_FIELD,
-  		$LDAP_USERPRINCIPALNAME_FIELD);
+  		$LDAP_USERPRINCIPALNAME_FIELD,
+  		$LDAP_ROOM_NUMBER_FIELD);
 
 
 // Делаем фильтр для выборки сотрудников
@@ -95,6 +96,15 @@ if(is_array($Staff))
 									array(
 										'sort' => array(
 													    'field' => $LDAP_MAIL_FIELD,
+													    'order' => $sort_order,
+													    'sorted_field' => $sort_field,
+													    'url_vars' => $url_vars
+													    ),
+										 ) );	
+	echo Application::getCollTitle($L->l('room_number'), 
+									array(
+										'sort' => array(
+													    'field' => $LDAP_ROOM_NUMBER_FIELD,
 													    'order' => $sort_order,
 													    'sorted_field' => $sort_field,
 													    'url_vars' => $url_vars
