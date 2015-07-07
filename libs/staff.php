@@ -386,6 +386,10 @@ abstract class Staff
 		else
 			echo "<td>".self::highlightSearchResult(self::makeTitle($Staff[$GLOBALS['LDAP_TITLE_FIELD']][$key]), $Vars['search_str'])."</td>"; //Выводим должность
 
+		if($Vars['locked_date'])
+			echo "<td>".Time::modifyDateFormat(self::makeTitle($Staff[$GLOBALS['LDAP_CHANGED_DATE_FIELD']][$key]), $GLOBALS['LDAP_CHANGED_DATE_FORMAT'], "yyyy-mm-dd")."</td>"; //Выводим должность
+
+
 		if(empty($Vars['search_str'])) //Если не велся поиск, то не подсвечивавем результаты
 			echo "<td>".self::makeMailUrl($Staff[$GLOBALS['LDAP_MAIL_FIELD']][$key])."</td>"; //Выводим почту
 		else

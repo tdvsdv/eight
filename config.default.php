@@ -219,6 +219,8 @@ $PAGE_LINKS['si_dep_staff_list']="По отделам";
 $PAGE_LINKS['si_alph_staff_list']="По алфавиту";
 $PAGE_LINKS['si_stafflist']="Поиск сотрудников";
 $PAGE_LINKS['si_new_workers']="Новички";
+$PAGE_LINKS['si_locked_list']="Уволенные";
+
 /* 
 BLOCK_VIS - Данный параметр позволяет управлять блоками на вкладках, заданных в параметре $PAGE_LINKS
 На данный момент есть 4 типа блоков:

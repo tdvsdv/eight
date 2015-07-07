@@ -607,3 +607,7 @@ div.xmpp_groups
 	{
 	padding-top: 10px;
 	}
+
+.surname_head.locked, .name.locked {
+  text-decoration: line-through;
+}

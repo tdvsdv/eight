@@ -30,4 +30,5 @@ add_contact_to_xmpp_list: ""
 send_message: "Send message"
 xmpp_message_has_been_sent: "Message has been sent"
 start_of_xmpp_sign: "Best regards,"
+locked_date: "Date of dismissal"
 

@@ -34,8 +34,12 @@ if($USE_DISPLAY_NAME)
 else
 	$Name=$ldap->getValue($dn, "name");
 
-$FIO=preg_replace("/^([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)$/u", "<div class=\"surname_head\">$1</div><div class=\"name\">$2</div>", $Name);
-$FIO=preg_replace("/^([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]{1}.)[\s]{1}([ёA-zА-я-]+)$/u", "<div class=\"surname_head\">$2</div><div class=\"name\">$1</div>", $FIO);
+
+$control=$ldap->getValue($dn, "useraccountcontrol");
+$LockedCssClass= ((($control & 2)==2)||(($control & 2) == 16))?"locked":"";
+
+$FIO=preg_replace("/^([ёA-zА-я-]+)[\s]{1}([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]+)$/u", "<div class=\"surname_head ".$LockedCssClass."\">$1</div><div class=\"name ".$LockedCssClass."\">$2</div>", $Name);
+$FIO=preg_replace("/^([ёA-zА-я-]+[\s]{1}[ёA-zА-я-]{1}.)[\s]{1}([ёA-zА-я-]+)$/u", "<div class=\"surname_head ".$LockedCssClass."\">$2</div><div class=\"name ".$LockedCssClass."\">$1</div>", $FIO);
 
 echo $FIO;
 
