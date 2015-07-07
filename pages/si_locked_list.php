@@ -49,7 +49,8 @@ $LdapListAttrs = array($LDAP_DISTINGUISHEDNAME_FIELD, $DisplayName,
   		$LDAP_DEPUTY_FIELD,
   		$LDAP_GUID_FIELD,
   		$LDAP_USERPRINCIPALNAME_FIELD,
-  		$LDAP_CHANGED_DATE_FIELD);
+  		$LDAP_CHANGED_DATE_FIELD,
+  		$LDAP_ROOM_NUMBER_FIELD);
 
 
 // Делаем фильтр для выборки сотрудников
@@ -110,6 +111,16 @@ if(is_array($Staff))
 													    'url_vars' => $url_vars
 													    ),
 										 ) );	
+
+	echo Application::getCollTitle($L->l('room_number'), 
+									array(
+										'sort' => array(
+													    'field' => $LDAP_ROOM_NUMBER_FIELD,
+													    'order' => $sort_order,
+													    'sorted_field' => $sort_field,
+													    'url_vars' => $url_vars
+													    ),
+										 ) );
 	echo Application::getCollTitle($L->l('intrenal_phone'), 
 									array(
 										'sort' => array(
