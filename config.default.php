@@ -336,4 +336,19 @@ $LDAP_XMMP_GROUP_TITLE_FIELD = "description";
 
 $LDAP_MEMBER_FIELD = "member";
 
+//Call via IP phones
+//----------------------------------------------------------------------------
+$ENABLE_CALL_VIA_IP=true;
+$CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN="08";
+
+$CALL_VIA_IP_HOST = "192.192.192.192";
+$CALL_VIA_IP_USER = "user_name";
+$CALL_VIA_IP_SECRET = "Secret_111";
+$CALL_VIA_IP_CHANEL = "Infinity";
+$CALL_VIA_IP_CONTEXT = "phone-book";
+$CALL_VIA_IP_WAIT_TIME = "30";
+$CALL_VIA_IP_PRIORITY = "1";
+$CALL_VIA_IP_MAX_RETRY = "0";
+//----------------------------------------------------------------------------
+
 ?>

@@ -93,6 +93,7 @@ function get_phone_attr($phone = '', $convert = true, $trim = true)
     // возвращаем результат без кода страны и города
     $PhoneAttr['format_phone']=($plus ? "+" : "").phoneBlocks($phone, $GLOBALS['FORMAT_PHONE_BLOCKLEN']);
     $PhoneAttr['clear_phone']=($plus ? "+" : "").$phone;
+    //$PhoneAttr['phone_for_call_via_ip']=str_replace ("+7" , $GLOBALS['CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN'], $PhoneAttr['clear_phone'])
 	$PhoneAttr['original_phone']=$OriginalPhone;
 	$PhoneAttr['provider_desc']=NULL;
     return $PhoneAttr;

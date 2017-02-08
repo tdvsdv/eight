@@ -96,12 +96,13 @@ abstract class Staff
 		if (empty($Val)) return 'x';
 		if($Link)
 		{
+			$call_via_ip = ($GLOBALS['ENABLE_CALL_VIA_IP'] && $_COOKIE['dn'])?"call_via_ip":"";
 			if(@$GLOBALS['FORMAT_INTERNAL_PHONE'])
 			{		
-				$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" class=\"in_link int_phone\">".$phone_attr['format_phone']."</a>";
+				$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" data-phone-for-ip-call=\"".$phone_attr['clear_phone']."\" class=\"in_link int_phone ".$call_via_ip."\">".$phone_attr['format_phone']."</a>";
 			}	
 			else
-				$Val="<a href=\"callto:".$Val."\" class=\"in_link int_phone\">".$Val."</a>";
+				$Val="<a href=\"callto:".$Val."\" data-phone-for-ip-call=\"".$Val."\"  class=\"in_link int_phone ".$call_via_ip."\">".$Val."</a>";
 		}
 		else
 			{
@@ -142,16 +143,23 @@ abstract class Staff
 		$phone_attr=get_phone_attr($Val);
 		if (empty($Val)) return 'x';
 		if($Link)
-		{
+			{	
+			$call_via_ip = ($GLOBALS['ENABLE_CALL_VIA_IP'] && $_COOKIE['dn'])?"call_via_ip":"";
+
 			if($GLOBALS['FORMAT_CELL_PHONE'])
-			{
+				{
 				if($GLOBALS['USE_PHONE_CODES_DESCRIPTION'] AND $phone_attr['provider_desc'])
 					$phone_title="title=\"".$phone_attr['provider_desc']."\"";
-				@$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" class=\"in_link cell_phone\" ".$phone_title.">".$phone_attr['format_phone']."</a>";
-			}
+
+				$phone_for_call_via_ip = str_replace ("+7" , $GLOBALS['CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN'], $phone_attr['clear_phone']);
+				@$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" data-phone-for-ip-call=\"".$phone_for_call_via_ip."\" class=\"in_link cell_phone ".$call_via_ip."\" ".$phone_title.">".$phone_attr['format_phone']."</a>";
+				}
 			else
-				$Val="<a href=\"callto:".$Val."\" class=\"in_link cell_phone\">".$Val."</a>";
-		}
+				{	
+				$phone_for_call_via_ip = str_replace ("+7" , $GLOBALS['CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN'], $Val);	
+				$Val="<a href=\"callto:".$Val."\" data-phone-for-ip-call=\"".$phone_for_call_via_ip."\" class=\"in_link cell_phone ".$call_via_ip."\">".$Val."</a>";
+				}
+			}
 		else
 			{
 			if(@$GLOBALS['FORMAT_CELL_PHONE'])
