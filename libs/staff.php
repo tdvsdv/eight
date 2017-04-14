@@ -99,10 +99,10 @@ abstract class Staff
 			$call_via_ip = ($GLOBALS['ENABLE_CALL_VIA_IP'] && $_COOKIE['dn'])?"call_via_ip":"";
 			if(@$GLOBALS['FORMAT_INTERNAL_PHONE'])
 			{		
-				$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" data-phone-for-ip-call=\"".$phone_attr['clear_phone']."\" class=\"in_link int_phone ".$call_via_ip."\">".$phone_attr['format_phone']."</a>";
+				$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$phone_attr['clear_phone']."\" data-phone-for-ip-call=\"".$phone_attr['clear_phone']."\" class=\"in_link int_phone ".$call_via_ip."\">".$phone_attr['format_phone']."</a>";
 			}	
 			else
-				$Val="<a href=\"callto:".$Val."\" data-phone-for-ip-call=\"".$Val."\"  class=\"in_link int_phone ".$call_via_ip."\">".$Val."</a>";
+				$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$Val."\" data-phone-for-ip-call=\"".$Val."\"  class=\"in_link int_phone ".$call_via_ip."\">".$Val."</a>";
 		}
 		else
 			{
@@ -125,10 +125,10 @@ abstract class Staff
 					$phone_title="title=\"".$phone_attr['provider_desc']."\"";
 				else
 					$phone_title="title=\"\"";
-				$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" class=\"in_link cityphone\" ".$phone_title.">".$phone_attr['format_phone']."</a>";
+				$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$phone_attr['clear_phone']."\" class=\"in_link cityphone\" ".$phone_title.">".$phone_attr['format_phone']."</a>";
 			}
 			else
-				$Val="<a href=\"callto:".$Val."\" class=\"in_link cityphone\">".$Val."</a>";
+				$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$Val."\" class=\"in_link cityphone\">".$Val."</a>";
 		}
 		else
 			{
@@ -152,12 +152,12 @@ abstract class Staff
 					$phone_title="title=\"".$phone_attr['provider_desc']."\"";
 
 				$phone_for_call_via_ip = str_replace ("+7" , $GLOBALS['CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN'], $phone_attr['clear_phone']);
-				@$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" data-phone-for-ip-call=\"".$phone_for_call_via_ip."\" class=\"in_link cell_phone ".$call_via_ip."\" ".$phone_title.">".$phone_attr['format_phone']."</a>";
+				@$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$phone_attr['clear_phone']."\" data-phone-for-ip-call=\"".$phone_for_call_via_ip."\" class=\"in_link cell_phone ".$call_via_ip."\" ".$phone_title.">".$phone_attr['format_phone']."</a>";
 				}
 			else
 				{	
 				$phone_for_call_via_ip = str_replace ("+7" , $GLOBALS['CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN'], $Val);	
-				$Val="<a href=\"callto:".$Val."\" data-phone-for-ip-call=\"".$phone_for_call_via_ip."\" class=\"in_link cell_phone ".$call_via_ip."\">".$Val."</a>";
+				$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$Val."\" data-phone-for-ip-call=\"".$phone_for_call_via_ip."\" class=\"in_link cell_phone ".$call_via_ip."\">".$Val."</a>";
 				}
 			}
 		else
@@ -178,12 +178,12 @@ abstract class Staff
 			if($GLOBALS['FORMAT_HOME_PHONE'])
 			{
 				if($GLOBALS['USE_PHONE_CODES_DESCRIPTION'] AND $phone_attr['provider_desc'])
-					$Val="<acronym title =\"".$phone_attr['provider_desc']."\"><a href=\"callto:".$phone_attr['clear_phone']."\" class=\"in_link homephone\">".$phone_attr['format_phone']."</a></acronym>";
+					$Val="<acronym title =\"".$phone_attr['provider_desc']."\"><a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$phone_attr['clear_phone']."\" class=\"in_link homephone\">".$phone_attr['format_phone']."</a></acronym>";
 				else
-					$Val="<a href=\"callto:".$phone_attr['clear_phone']."\" class=\"in_link homephone\">".$phone_attr['format_phone']."</a>";
+					$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$phone_attr['clear_phone']."\" class=\"in_link homephone\">".$phone_attr['format_phone']."</a>";
 			}
 			else
-				$Val="<a href=\"callto:".$Val."\" class=\"in_link homephone\">".$Val."</a>";
+				$Val="<a href=\"".@$GLOBALS['PHONE_LINK_TYPE'].$Val."\" class=\"in_link homephone\">".$Val."</a>";
 		}
 		else
 			{

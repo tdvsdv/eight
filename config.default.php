@@ -338,7 +338,8 @@ $LDAP_MEMBER_FIELD = "member";
 
 //Call via IP phones
 //----------------------------------------------------------------------------
-$ENABLE_CALL_VIA_IP=true;
+$ENABLE_CALL_VIA_IP = true;
+$PHONE_LINK_TYPE = "callto:";
 $CALL_VIA_IP_CHANGE_PLUS_AND_SEVEN="08";
 
 $CALL_VIA_IP_HOST = "192.192.192.192";
